@@ -19,6 +19,15 @@ const PrivateRoutes = () => {
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
+  const [spellCheck, setSpellCheck] = useState(() => {
+    const storedValue = localStorage.getItem('spellCheck');
+    return storedValue !== null ? JSON.parse(storedValue) : true;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('spellCheck', JSON.stringify(spellCheck));
+  }, [spellCheck]);
+
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -52,7 +61,7 @@ function App() {
           <Route index element={<Navigate to="/home" />} />
 
           <Route element={<PrivateRoutes />}>
-            <Route path="/home" element={<Home toggleDarkMode={toggleDarkMode} darkMode={darkMode} />} />
+            <Route path="/home" element={<Home toggleDarkMode={toggleDarkMode} darkMode={darkMode} spellCheck={spellCheck} setSpellCheck={setSpellCheck} />} />
           </Route>
 
           {/* Auth */}

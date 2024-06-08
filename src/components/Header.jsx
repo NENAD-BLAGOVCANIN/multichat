@@ -12,7 +12,7 @@ import TabSettingsModal from './tab/TabSettingsModal';
 import OptionsDropdown from './tab/OptionsDropdown';
 import Webview from './Webview';
 
-function Header({ toggleDarkMode, darkMode }) {
+function Header({ toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
     const [chats, setChats] = useState([]);
     const [selectedTab, setSelectedTab] = useState("welcome");
     const [showDeleteTabModal, setShowDeleteTabModal] = useState(false);
@@ -115,7 +115,7 @@ function Header({ toggleDarkMode, darkMode }) {
                             }
                         >
                             <div className='w-100 h-100'>
-                                <Webview chat={chat} />
+                                <Webview chat={chat} spellCheck={spellCheck} />
                             </div>
                         </Tab>
                     )}
@@ -153,6 +153,7 @@ function Header({ toggleDarkMode, darkMode }) {
                 showAccountSettingsModal={showAccountSettingsModal}
                 setShowAccountSettingsModal={setShowAccountSettingsModal}
                 toggleDarkMode={toggleDarkMode} darkMode={darkMode}
+                spellCheck={spellCheck} setSpellCheck={setSpellCheck}
             />
 
             <TabSettingsModal

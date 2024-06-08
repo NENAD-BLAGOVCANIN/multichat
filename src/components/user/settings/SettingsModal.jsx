@@ -8,18 +8,9 @@ import BootstrapSwitchButton from 'bootstrap-switch-button-react'
 import DownloadPath from './DownloadPath';
 import { Modal } from 'react-bootstrap';
 
-function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, toggleDarkMode, darkMode }) {
+function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
 
     const [userInfo, setUserInfo] = useState([]);
-
-    const [spellCheck, setSpellCheck] = useState(() => {
-        const storedValue = localStorage.getItem('spellCheck');
-        return storedValue !== null ? JSON.parse(storedValue) : true;
-    });
-
-    useEffect(() => {
-        localStorage.setItem('spellCheck', JSON.stringify(spellCheck));
-    }, [spellCheck]);
 
     useEffect(() => {
         const fetchUserInfo = async () => {
