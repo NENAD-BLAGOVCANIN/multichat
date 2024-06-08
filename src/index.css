@@ -111,6 +111,8 @@ body {
 .nav-tabs .nav-item .nav-link {
   border-top-left-radius: .5rem !important;
   border-top-right-radius: .5rem !important;
+  z-index: 99999 !important;
+  position: relative;
 }
 
 .nav-tabs .nav-item .nav-link.active {

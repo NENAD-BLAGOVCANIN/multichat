@@ -32,16 +32,16 @@ function TabSettingsModal({ selectedSettingsChat, setSelectedSettingsChat, showT
                                 onChange={(event) => setTitle(event.target.value)}
                             />
 
-                            <div class="form-check pt-4">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" checked />
-                                <label class="form-check-label" for="defaultCheck1">
+                            <div className="form-check pt-4">
+                                <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" checked />
+                                <label className="form-check-label" htmlFor="defaultCheck1">
                                     Enable Audio notifications
                                 </label>
                             </div>
 
-                            <div class="form-check pt-2">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" checked />
-                                <label class="form-check-label" for="defaultCheck1">
+                            <div className="form-check pt-2">
+                                <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" checked />
+                                <label className="form-check-label" htmlFor="defaultCheck1">
                                     Enable Message Notifications
                                 </label>
                             </div>
