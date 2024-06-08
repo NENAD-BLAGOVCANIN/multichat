@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { Modal } from 'react-bootstrap';
 
-function TabSettingsModal({ selectedSettingsChat, setSelectedSettingsChat, showTabSettingsModal, setShowTabSettingsModal }) {
+function TabSettingsModal({ darkMode, setSelectedSettingsChat, showTabSettingsModal, setShowTabSettingsModal }) {
 
     const [title, setTitle] = useState('');
 
@@ -11,49 +12,57 @@ function TabSettingsModal({ selectedSettingsChat, setSelectedSettingsChat, showT
 
     return (
         <>
-            <div className={`modal fade ${showTabSettingsModal ? 'show d-block' : ''}`} tabIndex="-1" role="dialog" style={{ zIndex: '9999999999' }}>
-                <div className="modal-dialog modal-dialog-centered mt-5" role="document" style={{ maxWidth: 550 }}>
-                    <div className="modal-content bg-app px-3 border-0 shadow-lg">
-                        <div className="modal-header pb-0 border-0 d-flex align-items-center">
-                            <div>
-                                <span className="modal-title bold m-0 h5">Chat settings</span>
-                            </div>
-                            <span type="button" className="close ms-auto m-0 color-text-lighter" onClick={handleCloseModal} style={{ fontSize: '20pt', fontWeight: '100' }}>
-                                <span aria-hidden="true">&times;</span>
-                            </span>
-                        </div>
-                        <div className='modal-body'>
 
-                            <label className='mt-4 mb-2 medium'>Title <span className='text-danger'>*</span></label>
-                            <input type="text"
-                                className='form-control medium'
-                                placeholder='ex. WhatsApp Business Account'
-                                value={title} style={{ padding: '.8rem' }}
-                                onChange={(event) => setTitle(event.target.value)}
-                            />
+            <Modal show={showTabSettingsModal}
+                onHide={handleCloseModal}
+                backdrop="static"
+                keyboard={true}
+                size='md'
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
 
-                            <div className="form-check pt-4">
-                                <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" checked />
-                                <label className="form-check-label" htmlFor="defaultCheck1">
-                                    Enable Audio notifications
-                                </label>
-                            </div>
+                <Modal.Header className='border-0'>
+                    <Modal.Title className='bold h5'>
+                        Chat settings
+                    </Modal.Title>
+                    <button type="button" onClick={() => { handleCloseModal() }}
+                        className={`btn-close ${darkMode ? 'btn-close-white' : ''}`} aria-label="Close">
+                    </button>
 
-                            <div className="form-check pt-2">
-                                <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" checked />
-                                <label className="form-check-label" htmlFor="defaultCheck1">
-                                    Enable Message Notifications
-                                </label>
-                            </div>
+                </Modal.Header>
 
-                            <div className='pt-5 pb-4 mt-3 d-flex justify-content-end'>
-                                <button className='btn btn-primary medium'>Save changes</button>
-                            </div>
+                <Modal.Body className='pt-4'>
 
-                        </div>
+                    <label className='mt-4 mb-2 medium'>Title <span className='text-danger'>*</span></label>
+                    <input type="text"
+                        className='form-control medium'
+                        placeholder='ex. WhatsApp Business Account'
+                        value={title} style={{ padding: '.8rem' }}
+                        onChange={(event) => setTitle(event.target.value)}
+                    />
+
+                    <div className="form-check pt-4">
+                        <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" checked />
+                        <label className="form-check-label" htmlFor="defaultCheck1">
+                            Enable Audio notifications
+                        </label>
                     </div>
-                </div>
-            </div>
+
+                    <div className="form-check pt-2">
+                        <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" checked />
+                        <label className="form-check-label" htmlFor="defaultCheck1">
+                            Enable Message Notifications
+                        </label>
+                    </div>
+
+                    <div className='pt-5 pb-2 mt-3 d-flex justify-content-end'>
+                        <button className='btn btn-primary medium'>Save changes</button>
+                    </div>
+
+                </Modal.Body>
+
+            </Modal>
         </>
     )
 }

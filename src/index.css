@@ -336,11 +336,11 @@ hr {
 }
 
 .options-menu-dropdown .dropdown-item {
-  color: var(--color-text) !important;
+  color: var(--color-text);
 }
 
 .options-menu-dropdown .dropdown-item:hover {
-  background: var(--color-main-background) !important;
+  background: var(--color-main-background);
 }
 
 .hover:hover {

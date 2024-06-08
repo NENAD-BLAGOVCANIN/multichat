@@ -144,6 +144,7 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
             />
 
             <TabSettingsModal
+                darkMode={darkMode}
                 selectedSettingsChat={selectedSettingsChat}
                 setSelectedSettingsChat={setSelectedSettingsChat}
                 showTabSettingsModal={showTabSettingsModal}

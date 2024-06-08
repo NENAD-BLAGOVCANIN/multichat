@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClose, faEllipsisV, faGear, faHome, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faClose, faEllipsisV, faGear, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 function OptionsDropdown({ tabId, chat=null, closeOptionsDropdown, openDeleteTabModal, openTabSettingsModal }) {
     useEffect(() => {
@@ -20,8 +20,8 @@ function OptionsDropdown({ tabId, chat=null, closeOptionsDropdown, openDeleteTab
     if (!chat) {
         return (
             <Dropdown.Menu show className="options-menu-dropdown shadow-lg">
-                <Dropdown.Item className="hover" onClick={(event) => { openDeleteTabModal(event, tabId) }}>
-                    <FontAwesomeIcon icon={faClose} className='pe-2' />
+                <Dropdown.Item className="hover medium text-danger" onClick={(event) => { openDeleteTabModal(event, tabId) }}>
+                    <FontAwesomeIcon icon={faTrash} className='pe-2' />
                     Close Window
                 </Dropdown.Item>
             </Dropdown.Menu>
@@ -30,13 +30,13 @@ function OptionsDropdown({ tabId, chat=null, closeOptionsDropdown, openDeleteTab
 
     return (
         <Dropdown.Menu show className="options-menu-dropdown shadow-lg">
-            <Dropdown.Item className="hover" onClick={(event) => { openTabSettingsModal(event, chat) }}>
+            <Dropdown.Item className="hover medium" onClick={(event) => { openTabSettingsModal(event, chat) }}>
                 <FontAwesomeIcon icon={faGear} className='pe-2 small' />
-                Settings
+                Chat settings
             </Dropdown.Item>
-            <Dropdown.Item className="hover" onClick={(event) => { openDeleteTabModal(event, chat) }}>
-                <FontAwesomeIcon icon={faClose} className='pe-2' />
-                Delete Chat
+            <Dropdown.Item className="hover medium text-danger" onClick={(event) => { openDeleteTabModal(event, chat) }}>
+                <FontAwesomeIcon icon={faTrash} className='pe-2' />
+                Delete chat
             </Dropdown.Item>
         </Dropdown.Menu>
     );
