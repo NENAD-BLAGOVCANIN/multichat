@@ -12,7 +12,7 @@ import TabSettingsModal from './tab/TabSettingsModal';
 import OptionsDropdown from './tab/OptionsDropdown';
 import Webview from './Webview';
 
-function Header({ toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
+function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
     const [chats, setChats] = useState([]);
     const [selectedTab, setSelectedTab] = useState("welcome");
     const [showDeleteTabModal, setShowDeleteTabModal] = useState(false);
@@ -154,4 +154,4 @@ function Header({ toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
     );
 }
 
-export default Header;
+export default TabsNavigation;

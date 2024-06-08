@@ -1,11 +1,11 @@
 import React from 'react'
-import Header from '../components/Header'
+import TabsNavigation from '../components/TabsNavigation'
 
 function Home({ toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
   return (
     <>
 
-      <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode}
+      <TabsNavigation toggleDarkMode={toggleDarkMode} darkMode={darkMode}
         spellCheck={spellCheck} setSpellCheck={setSpellCheck}
       />
 
