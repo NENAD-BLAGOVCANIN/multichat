@@ -40,38 +40,25 @@ function Header({ toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
         fetchChats();
     }, []);
 
-    const handleLoadChat = (chat) => {
-        window.ipcRenderer?.send('inject-css', ':host { display: flex; } iframe {height: 100vh !important}');
-        window.ipcRenderer.send('open-chat', { chat: chat });
-    };
-
-    const hideChat = () => {
-        window.ipcRenderer.send('hide-chat', {});
-    }
-
     const openDeleteTabModal = (event, chat) => {
         event.stopPropagation();
         setSelectedDeleteChat(chat);
-        window.ipcRenderer.send('hide-chat', {});
         setShowDeleteTabModal(true);
     }
 
     const openTabSettingsModal = (event, chat) => {
         event.stopPropagation();
         setSelectedSettingsChat(chat);
-        window.ipcRenderer.send('hide-chat', {});
         setShowTabSettingsModal(true);
     }
 
     const openAccountSettingsModal = (event) => {
         event.stopPropagation();
-        window.ipcRenderer.send('hide-chat', {});
         setShowAccountSettingsModal(true);
     }
 
     const handleOpenOptionsDropdown = (event, tabId) => {
         event.stopPropagation();
-        hideChat();
         setShowOptionsDropdown(showOptionsDropdown === tabId ? null : tabId);
     };
 
@@ -84,7 +71,7 @@ function Header({ toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
             <div>
                 <Tabs className='border-0 pt-1 w-100' style={{ overflow: 'visible !important' }} activeKey={selectedTab} onSelect={(key) => setSelectedTab(key)}>
                     <Tab eventKey="welcome" className='px-0' title={
-                        <div className="tab-item" onClick={() => hideChat()}>
+                        <div className="tab-item">
                             <span className='ps-2 px-2 py-1 color-text-lighter medium'>🏠</span>
                             {/* <div className='options-tab-button hover-light rounded-circle me-1' onClick={(event) => handleOpenOptionsDropdown(event, welcome_tab_id)}>
                                 <FontAwesomeIcon icon={faEllipsisV} className='small' />
@@ -102,7 +89,7 @@ function Header({ toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
                             key={chat.id}
                             className='px-0'
                             title={
-                                <div className="tab-item" onClick={() => handleLoadChat(chat)}>
+                                <div className="tab-item">
                                     <img src={chat.messaging_service.icon + '?v=2'} className='tab-icon' />
                                     <span className='ps-2 px-2 py-1 color-text-lighter medium'>{chat.title}</span>
                                     <div className='d-flex align-items-center ps-4'>
@@ -121,7 +108,7 @@ function Header({ toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
                     )}
 
                     <Tab eventKey="create-new-chat" title={
-                        <div className='btn p-1 color-text d-flex align-items-center' onClick={() => hideChat()}>
+                        <div className='btn p-1 color-text d-flex align-items-center'>
                             <div className="tab-item">
                                 <FontAwesomeIcon className='small' icon={faPlus} />
                             </div>
