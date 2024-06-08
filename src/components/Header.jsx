@@ -85,11 +85,11 @@ function Header({ toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
                 <Tabs className='border-0 pt-1 w-100' style={{ overflow: 'visible !important' }} activeKey={selectedTab} onSelect={(key) => setSelectedTab(key)}>
                     <Tab eventKey="welcome" className='px-0' title={
                         <div className="tab-item" onClick={() => hideChat()}>
-                            <span className='ps-2 px-2 py-1 color-text-lighter medium'>🏠 Welcome</span>
-                            <div className='options-tab-button hover-light rounded-circle me-1' onClick={(event) => handleOpenOptionsDropdown(event, welcome_tab_id)}>
+                            <span className='ps-2 px-2 py-1 color-text-lighter medium'>🏠</span>
+                            {/* <div className='options-tab-button hover-light rounded-circle me-1' onClick={(event) => handleOpenOptionsDropdown(event, welcome_tab_id)}>
                                 <FontAwesomeIcon icon={faEllipsisV} className='small' />
-                            </div>
-                            {showOptionsDropdown === welcome_tab_id && <OptionsDropdown tabId={welcome_tab_id} closeOptionsDropdown={closeOptionsDropdown} openDeleteTabModal={openDeleteTabModal} openTabSettingsModal={openTabSettingsModal} />}
+                            </div> */}
+                            {/* {showOptionsDropdown === welcome_tab_id && <OptionsDropdown tabId={welcome_tab_id} closeOptionsDropdown={closeOptionsDropdown} openDeleteTabModal={openDeleteTabModal} openTabSettingsModal={openTabSettingsModal} />} */}
                         </div>
                     }>
                         <Welcome />
