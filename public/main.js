@@ -66,7 +66,6 @@ app.on('ready', () => {
             enableRemoteModule: true,
             sandbox: false,
             preload: path.join(__dirname, 'preload.js'),
-            preload: path.join(__dirname, 'webview-preload.js'),
             webSecurity: true,
             allowFileAccess: false,
             webviewTag: true
@@ -116,7 +115,7 @@ app.on('window-all-closed', () => {
 });
 
 function toggleSpellCheck(isSpellCheckEnabled) {
-    
+
     spellCheckEnabled = isSpellCheckEnabled;
 
     for (let chatId in chatWindows) {

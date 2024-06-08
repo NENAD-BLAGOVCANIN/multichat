@@ -11,9 +11,6 @@ import SettingsModal from './user/settings/SettingsModal';
 import TabSettingsModal from './tab/TabSettingsModal';
 import OptionsDropdown from './tab/OptionsDropdown';
 
-const { ipcRenderer } = require('electron'); // Assuming you're using IPC
-
-
 function Header({ toggleDarkMode, darkMode }) {
     const [chats, setChats] = useState([]);
     const [selectedTab, setSelectedTab] = useState("welcome");
@@ -25,7 +22,6 @@ function Header({ toggleDarkMode, darkMode }) {
     const [showOptionsDropdown, setShowOptionsDropdown] = useState(null);
 
 
-    ipcRenderer.send('inject-css', ':host { display: flex; } iframe {height: 100% !important}');
 
     const welcome_tab_id = "welcome";
 
@@ -44,6 +40,7 @@ function Header({ toggleDarkMode, darkMode }) {
     }, []);
 
     const handleLoadChat = (chat) => {
+        window.ipcRenderer?.send('inject-css', ':host { display: flex; } iframe {height: 100vh !important}');
         window.ipcRenderer.send('open-chat', { chat: chat });
     };
 
@@ -117,7 +114,7 @@ function Header({ toggleDarkMode, darkMode }) {
                             }
                         >
                             <div className='w-100 h-100'>
-                                <webview src="https://www.github.com/" className="w-100 h-100 d-block" autosize="on" minwidth="800px" minheight="1200px"></webview>
+                                <webview src="https://web.whatsapp.com/" className="d-flex" style={{ height: '100vh', minHeight: 1200 }}></webview>
                             </div>
                         </Tab>
                     )}
