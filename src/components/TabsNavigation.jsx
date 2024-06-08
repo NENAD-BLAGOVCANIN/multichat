@@ -128,6 +128,7 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
             </div>
 
             <DeleteTabModal
+                darkMode={darkMode}
                 chats={chats}
                 setChats={setChats}
                 showDeleteTabModal={showDeleteTabModal}
