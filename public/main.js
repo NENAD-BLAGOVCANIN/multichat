@@ -7,12 +7,9 @@ setupTitlebar();
 
 let mainWindow;
 let tray;
-let chatWindows = {};
-const headerHeight = 80;
 const NOTIFICATION_TITLE = 'Read New Messages'
 const NOTIFICATION_BODY = 'Checkout your new messages on Multichat.'
 const appPath = path.resolve(app.getPath('exe'));
-let spellCheckEnabled = false; // Default state
 const isDev = true;
 
 const startURL = isDev
@@ -93,7 +90,6 @@ app.on('ready', () => {
         }
     });
 
-
 });
 
 ipcMain.on('close-main-window', (event) => {
@@ -104,7 +100,6 @@ ipcMain.on('close-main-window', (event) => {
 });
 
 app.on('before-quit', () => {
-    // persistSessionData();
     app.isQuitting = true;
 });
 
@@ -112,24 +107,4 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit();
     }
-});
-
-function toggleSpellCheck(isSpellCheckEnabled) {
-
-    spellCheckEnabled = isSpellCheckEnabled;
-
-    for (let chatId in chatWindows) {
-        const chatWindow = chatWindows[chatId];
-        if (chatWindow) {
-            chatWindow.webContents.session.setSpellCheckerEnabled(spellCheckEnabled);
-        }
-    }
-}
-
-ipcMain.on('enable-spell-check', (event) => {
-    toggleSpellCheck(true)
-});
-
-ipcMain.on('disable-spell-check', (event) => {
-    toggleSpellCheck(false)
 });
