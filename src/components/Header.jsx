@@ -10,6 +10,7 @@ import DeleteTabModal from './tab/DeleteTabModal';
 import SettingsModal from './user/settings/SettingsModal';
 import TabSettingsModal from './tab/TabSettingsModal';
 import OptionsDropdown from './tab/OptionsDropdown';
+import Webview from './Webview';
 
 function Header({ toggleDarkMode, darkMode }) {
     const [chats, setChats] = useState([]);
@@ -114,7 +115,7 @@ function Header({ toggleDarkMode, darkMode }) {
                             }
                         >
                             <div className='w-100 h-100'>
-                                <webview src="https://web.whatsapp.com/" className="d-flex" style={{ height: '100vh', minHeight: 1200 }}></webview>
+                                <Webview chat={chat} />
                             </div>
                         </Tab>
                     )}
