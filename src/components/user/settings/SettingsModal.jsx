@@ -83,8 +83,8 @@ function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, 
                         <BootstrapSwitchButton
                             checked={darkMode}
                             className="bg-gray"
-                            onlabel='☀️'
-                            offlabel='🌘'
+                            onlabel='🌘'
+                            offlabel='☀️'
                             onChange={toggleDarkMode}
                         />
 
