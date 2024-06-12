@@ -25,8 +25,12 @@ function showNotification() {
     new Notification({
         title: NOTIFICATION_TITLE,
         body: NOTIFICATION_BODY,
-        icon: path.join(__dirname, 'favicon.ico')
+        icon: path.join(__dirname, '../src/assets/img/logo.png'),
     }).show();
+}
+
+if (process.platform === 'win32') {
+    app.setAppUserModelId(app.name)
 }
 
 function createTray() {
@@ -44,12 +48,6 @@ function createTray() {
 }
 
 app.on('ready', () => {
-
-    new Notification({
-        title: NOTIFICATION_TITLE,
-        body: NOTIFICATION_BODY
-    }).show()
-
 
     createTray();
 

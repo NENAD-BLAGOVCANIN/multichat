@@ -109,11 +109,11 @@ function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, 
 
                     </div>
 
-                    <span className='bold mt-4'>
+                    {/* <span className='bold mt-4'>
                         Downloads
-                    </span>
+                    </span> */}
 
-                    <DownloadPath />
+                    {/* <DownloadPath /> */}
 
 
 

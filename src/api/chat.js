@@ -56,6 +56,36 @@ const createChat = async (title, selectedMessagingService) => {
     }
 };
 
+const updateChat = async (chat_id, title) => {
+    
+    const variables = {
+        title: title,
+    };
+
+    const token = localStorage.getItem('accessToken');
+
+    try {
+        const response = await fetch(apiUrl+'/chats/'+chat_id, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify(variables)
+        });
+
+        const responseData = await response.json();
+
+        if (!response.ok) {
+            throw new Error(responseData.detail || 'Action failed');
+        }
+
+        return responseData;
+    } catch (error) {
+        throw new Error(error);
+    }
+};
+
 const deleteChat = async (chatId) => {
 
     const token = localStorage.getItem('accessToken');
@@ -81,4 +111,4 @@ const deleteChat = async (chatId) => {
     }
 };
 
-export { getChats, createChat, deleteChat };
+export { getChats, createChat, updateChat, deleteChat };

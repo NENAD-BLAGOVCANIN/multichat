@@ -1,13 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Modal } from 'react-bootstrap';
+import { updateChat } from '../../api/chat';
+import { toast } from 'react-toastify';
 
-function TabSettingsModal({ darkMode, setSelectedSettingsChat, showTabSettingsModal, setShowTabSettingsModal }) {
+function TabSettingsModal({ darkMode, selectedSettingsChat, setSelectedSettingsChat, showTabSettingsModal, setShowTabSettingsModal }) {
 
     const [title, setTitle] = useState('');
 
     const handleCloseModal = () => {
         window.ipcRenderer.send('show-chat', {});
         setShowTabSettingsModal(false);
+    }
+
+    useEffect(() => {
+        setTitle(selectedSettingsChat?.title || '');
+    }, [selectedSettingsChat]);
+
+
+    const handleSaveChanges = async () => {
+        const response = await updateChat(selectedSettingsChat.id, title);
+        if (response.success) {
+            toast.success('Successfully updated tab settings!');
+        } else {
+            toast.error('Error while trying to update tab settings. Try again later!');
+        }
     }
 
     return (
@@ -57,7 +73,7 @@ function TabSettingsModal({ darkMode, setSelectedSettingsChat, showTabSettingsMo
                     </div>
 
                     <div className='pt-5 pb-2 mt-3 d-flex justify-content-end'>
-                        <button className='btn btn-primary medium'>Save changes</button>
+                        <button className='btn btn-primary medium' onClick={() => { handleSaveChanges() }}>Save changes</button>
                     </div>
 
                 </Modal.Body>
