@@ -6,6 +6,8 @@ import { toast } from 'react-toastify';
 function TabSettingsModal({ chats, setChats, darkMode, selectedSettingsChat, setSelectedSettingsChat, showTabSettingsModal, setShowTabSettingsModal }) {
 
     const [title, setTitle] = useState('');
+    const [isAudioEnabled, setIsAudioEnabled] = useState(false);
+    const [isMessageEnabled, setIsMessageEnabled] = useState(false);
 
     const handleCloseModal = () => {
         window.ipcRenderer.send('show-chat', {});
@@ -14,6 +16,8 @@ function TabSettingsModal({ chats, setChats, darkMode, selectedSettingsChat, set
 
     useEffect(() => {
         setTitle(selectedSettingsChat?.title || '');
+        setIsAudioEnabled(selectedSettingsChat?.audioEnabled || false);
+        setIsMessageEnabled(selectedSettingsChat?.messageEnabled || false);
     }, [selectedSettingsChat]);
 
 
@@ -69,15 +73,15 @@ function TabSettingsModal({ chats, setChats, darkMode, selectedSettingsChat, set
                     />
 
                     <div className="form-check pt-4">
-                        <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" checked />
+                        <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" checked={isAudioEnabled} onChange={(event) => setIsAudioEnabled(event.target.checked)} />
                         <label className="form-check-label" htmlFor="defaultCheck1">
                             Enable Audio notifications
                         </label>
                     </div>
 
                     <div className="form-check pt-2">
-                        <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" checked />
-                        <label className="form-check-label" htmlFor="defaultCheck1">
+                        <input className="form-check-input" type="checkbox" value="" id="defaultCheck2" checked={isMessageEnabled} onChange={(event) => setIsMessageEnabled(event.target.checked)} />
+                        <label className="form-check-label" htmlFor="defaultCheck2">
                             Enable Message Notifications
                         </label>
                     </div>
