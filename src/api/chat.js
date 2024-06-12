@@ -56,10 +56,12 @@ const createChat = async (title, selectedMessagingService) => {
     }
 };
 
-const updateChat = async (chat_id, title) => {
+const updateChat = async (chat_id, title, isAudioEnabled, isMessageEnabled) => {
     
     const variables = {
         title: title,
+        audio_notifications: isAudioEnabled,
+        notifications: isMessageEnabled
     };
 
     const token = localStorage.getItem('accessToken');

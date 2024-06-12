@@ -16,14 +16,14 @@ function TabSettingsModal({ chats, setChats, darkMode, selectedSettingsChat, set
 
     useEffect(() => {
         setTitle(selectedSettingsChat?.title || '');
-        setIsAudioEnabled(selectedSettingsChat?.audioEnabled || false);
-        setIsMessageEnabled(selectedSettingsChat?.messageEnabled || false);
+        setIsAudioEnabled(selectedSettingsChat?.audio_notifications || false);
+        setIsMessageEnabled(selectedSettingsChat?.notifications || false);
     }, [selectedSettingsChat]);
 
 
     const handleSaveChanges = async () => {
         try {
-            const updatedChat = await updateChat(selectedSettingsChat.id, title);
+            const updatedChat = await updateChat(selectedSettingsChat.id, title, isAudioEnabled, isMessageEnabled);
             const updatedChats = chats.map(chat => {
                 if (chat.id === updatedChat.id) {
                     return updatedChat;
