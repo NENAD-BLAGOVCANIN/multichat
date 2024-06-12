@@ -65,7 +65,7 @@ const updateChat = async (chat_id, title) => {
     const token = localStorage.getItem('accessToken');
 
     try {
-        const response = await fetch(apiUrl+'/chats/'+chat_id, {
+        const response = await fetch(apiUrl+'/chat/'+chat_id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

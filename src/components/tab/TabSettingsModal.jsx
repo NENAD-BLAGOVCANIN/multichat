@@ -3,7 +3,7 @@ import { Modal } from 'react-bootstrap';
 import { updateChat } from '../../api/chat';
 import { toast } from 'react-toastify';
 
-function TabSettingsModal({ darkMode, selectedSettingsChat, setSelectedSettingsChat, showTabSettingsModal, setShowTabSettingsModal }) {
+function TabSettingsModal({ chats, setChats, darkMode, selectedSettingsChat, setSelectedSettingsChat, showTabSettingsModal, setShowTabSettingsModal }) {
 
     const [title, setTitle] = useState('');
 
@@ -18,11 +18,21 @@ function TabSettingsModal({ darkMode, selectedSettingsChat, setSelectedSettingsC
 
 
     const handleSaveChanges = async () => {
-        const response = await updateChat(selectedSettingsChat.id, title);
-        if (response.success) {
+        try {
+            const updatedChat = await updateChat(selectedSettingsChat.id, title);
+            const updatedChats = chats.map(chat => {
+                if (chat.id === updatedChat.id) {
+                    return updatedChat;
+                }
+                return chat;
+            });
+            setChats(updatedChats);
+            setSelectedSettingsChat(updatedChat);
             toast.success('Successfully updated tab settings!');
-        } else {
+
+        } catch (error) {
             toast.error('Error while trying to update tab settings. Try again later!');
+
         }
     }
 
