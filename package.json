@@ -60,6 +60,7 @@
       }
     },
     "win": {
+      "icon": "./src/assets/img/logo.png",
       "publish": {
         "provider": "github",
         "owner": "Github Owner",

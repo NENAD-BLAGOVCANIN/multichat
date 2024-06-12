@@ -10,16 +10,19 @@ let tray;
 const NOTIFICATION_TITLE = 'Read New Messages'
 const NOTIFICATION_BODY = 'Checkout your new messages on Multichat.'
 const appPath = path.resolve(app.getPath('exe'));
-const isDev = true;
+const isDev = false;
 
 const startURL = isDev
     ? 'http://localhost:3000'
     : `file://${path.join(__dirname, '../build/index.html')}`;
 
-app.setLoginItemSettings({
-    openAtLogin: true,
-    path: appPath
-});
+if (!isDev) {
+    app.setLoginItemSettings({
+        openAtLogin: true,
+        path: appPath
+    });
+}
+
 
 function showNotification() {
     new Notification({
@@ -61,8 +64,8 @@ app.on('ready', () => {
             enableRemoteModule: true,
             sandbox: false,
             preload: path.join(__dirname, 'preload.js'),
-            webSecurity: true,
-            allowFileAccess: false,
+            // webSecurity: true,
+            // allowFileAccess: false,
             webviewTag: true
         },
         frame: true,
