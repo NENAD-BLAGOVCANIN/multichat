@@ -35,7 +35,10 @@
     "react-toastify": "^10.0.5",
     "wait-on": "^7.2.0",
     "web-vitals": "^2.1.4",
-    "webpack": "^5.91.0"
+    "webpack": "^5.91.0",
+    "i18next": "^23.11.5",
+    "i18next-browser-languagedetector": "^8.0.0",
+    "react-i18next": "^14.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
