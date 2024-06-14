@@ -1,19 +1,22 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBell, faCircleHalfStroke, faEdit, faInfinity, faKeyboard, faShieldHalved } from '@fortawesome/free-solid-svg-icons'
-import { faFonticonsFi } from '@fortawesome/free-brands-svg-icons'
+import { useTranslation } from 'react-i18next';
 
 function Features() {
+
+    const { t } = useTranslation();
+
     return (
-        <div className="row">
+        <div className="row" id="features">
             <div className="col-md-4 p-4">
                 <div className='card rounded bg-app py-3 px-4 h-100 border-0'>
                     <FontAwesomeIcon icon={faCircleHalfStroke} className='me-auto mb-3 h5' />
                     <span className="mb-2 bold">
-                        Dark & Light Modes
+                        {t('home.features.box_1.title')}
                     </span>
                     <p className="opacity-80 medium">
-                        Choose your preferred color scheme to reduce eye strain.
+                        {t('home.features.box_1.text')}
                     </p>
                 </div>
 
@@ -22,10 +25,10 @@ function Features() {
                 <div className='card rounded bg-app py-3 px-4 h-100 border-0'>
                     <FontAwesomeIcon icon={faKeyboard} className='me-auto mb-3 h5' />
                     <span className="mb-2 bold">
-                        Keyboard Shortcuts
+                        {t('home.features.box_2.title')}
                     </span>
                     <p className="opacity-80 medium">
-                        Move at the speed of light with our extensive keyboard support.
+                        {t('home.features.box_2.text')}
                     </p>
                 </div>
 
@@ -34,10 +37,10 @@ function Features() {
                 <div className='card rounded bg-app py-3 px-4 h-100 border-0'>
                     <FontAwesomeIcon icon={faEdit} className='me-auto mb-3 h5' />
                     <span className="mb-2 bold">
-                        Customizable UI
+                        {t('home.features.box_3.title')}
                     </span>
                     <p className="opacity-80 medium">
-                        Customize the UI based on your preferences.
+                        {t('home.features.box_3.text')}
                     </p>
                 </div>
 
@@ -46,11 +49,10 @@ function Features() {
                 <div className='card rounded bg-app py-3 px-4 h-100 border-0'>
                     <FontAwesomeIcon icon={faShieldHalved} className='me-auto mb-3 h5' />
                     <span className="mb-2 bold">
-                        Privacy and Security
+                        {t('home.features.box_4.title')}
                     </span>
                     <p className="opacity-80 medium">
-                        All of your messages are e2e encrypted, so you can
-                        communicate privately with your friends and family.
+                        {t('home.features.box_4.text')}
                     </p>
                 </div>
 
@@ -59,10 +61,10 @@ function Features() {
                 <div className='card rounded bg-app py-3 px-4 h-100 border-0'>
                     <FontAwesomeIcon icon={faInfinity} className='me-auto mb-3 h5' />
                     <span className="mb-2 bold">
-                        Unlimited accounts
+                        {t('home.features.box_5.title')}
                     </span>
                     <p className="opacity-80 medium">
-                        Open as meny tabs as you like, with each tab having it's own session with unique credentials
+                        {t('home.features.box_5.text')}
                     </p>
                 </div>
 
@@ -71,10 +73,10 @@ function Features() {
                 <div className='card rounded bg-app py-3 px-4 h-100 border-0'>
                     <FontAwesomeIcon icon={faBell} className='me-auto mb-3 h5' />
                     <span className="mb-2 bold">
-                        Notifications
+                        {t('home.features.box_6.title')}
                     </span>
                     <p className="opacity-80 medium">
-                        Control your notifications, snooze or mute your messages when busy.
+                        {t('home.features.box_6.text')}
                     </p>
                 </div>
 
