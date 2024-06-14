@@ -5,7 +5,6 @@ import { Modal } from 'react-bootstrap';
 function DeleteTabModal({ darkMode, chats, setChats, showDeleteTabModal, setShowDeleteTabModal, selectedDeleteChat, setSelectedDeleteChat }) {
 
     const handleCloseModal = () => {
-        window.ipcRenderer.send('show-chat', {});
         setShowDeleteTabModal(false);
     }
 
