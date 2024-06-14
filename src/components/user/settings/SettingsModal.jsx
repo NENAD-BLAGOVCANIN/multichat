@@ -28,7 +28,6 @@ function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, 
 
 
     const handleCloseModal = () => {
-        window.ipcRenderer.send('show-chat', {});
         setShowAccountSettingsModal(false);
     }
 
