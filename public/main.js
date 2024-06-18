@@ -10,7 +10,7 @@ let tray;
 const NOTIFICATION_TITLE = 'Read New Messages'
 const NOTIFICATION_BODY = 'Checkout your new messages on Multichat.'
 const appPath = path.resolve(app.getPath('exe'));
-const isDev = false;
+const isDev = true;
 
 const startURL = isDev
     ? 'http://localhost:3000'

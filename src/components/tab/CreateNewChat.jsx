@@ -88,11 +88,11 @@ function CreateNewChat({ chats, setChats, selectedTab, setSelectedTab }) {
                                         <img src={weChatLogo} className='img-fluid' style={{ height: 25 }} alt="" />
                                     </button>
                                 </div>
-                                <div className="col-4 pb-3 px-1">
+                                {/* <div className="col-4 pb-3 px-1">
                                     <button onClick={() => { setSelectedMessagingService('line') }} className={`btn w-100 rounded d-flex justify-content-center align-items-center small ${selectedMessagingService === 'line' ? 'btn-primary' : 'btn-basic border'}`} style={{ height: 65 }}>
                                         <img src={lineLogo} className='img-fluid' style={{ height: 25 }} alt="" />
                                     </button>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>

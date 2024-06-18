@@ -7,6 +7,7 @@ import { getUserInfo } from '../../../api/user';
 import BootstrapSwitchButton from 'bootstrap-switch-button-react'
 import DownloadPath from './DownloadPath';
 import { Modal } from 'react-bootstrap';
+import LanguageSelector from './LanguageSelector';
 
 function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
 
@@ -110,8 +111,12 @@ function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, 
 
                         <label className='small ps-2'> Enable spell check</label>
 
+                        <LanguageSelector />
+
                     </div>
 
+
+                        
                     <span className='bold'>
                         Account
                     </span>
