@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import ProfilePlaceholderImage from '../../../assets/img/ProfilePlaceholderImage.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faBoltLightning, faDiamond, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { getUserInfo } from '../../../api/user';
 import BootstrapSwitchButton from 'bootstrap-switch-button-react'
@@ -65,18 +65,22 @@ function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, 
                         <span className="modal-title text-center m-auto d-block my-2 bold">{userInfo.name}</span>
                         <span className='small color-text-lighter text-center m-auto d-block'>{userInfo.email}</span>
                     </div>
-                    <div className='text-center py-3'>
-                        <Link to='/logout' className='btn btn-basic bg-transparent small border px-3 py-2 color-text'>
-                            <FontAwesomeIcon icon={faRightFromBracket} className='text-danger pe-2' /> Logout
-                        </Link>
+                    <div className='py-3'>
+                        <span className='medium text-center m-auto d-block py-2'>
+                            Current plan: <b>Multichat Free</b>
+                        </span>
+                        <a className='btn btn-basic bg-transparent m-auto d-block py-3 my-2 medium border px-3 py-2 color-text'>
+                            <FontAwesomeIcon icon={faBoltLightning} className='text-warning pe-2' /> Purchase premium
+                        </a>
                     </div>
 
 
-                    <span className='bold mt-3'>
+
+                    <span className='bold'>
                         Appearence
                     </span>
 
-                    <div className="form-group py-4">
+                    <div className="form-group py-4 mb-3">
 
 
                         <BootstrapSwitchButton
@@ -91,11 +95,11 @@ function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, 
 
                     </div>
 
-                    <span className='bold mt-3'>
+                    <span className='bold'>
                         Language
                     </span>
 
-                    <div className="form-group py-4">
+                    <div className="form-group py-4 mb-3">
 
 
                         <BootstrapSwitchButton
@@ -105,6 +109,19 @@ function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, 
                         />
 
                         <label className='small ps-2'> Enable spell check</label>
+
+                    </div>
+
+                    <span className='bold'>
+                        Account
+                    </span>
+
+                    <div className="form-group py-4 mb-3">
+
+
+                        <Link to='/logout' className='btn btn-basic bg-transparent small border px-3 py-2 color-text'>
+                            <FontAwesomeIcon icon={faRightFromBracket} className='text-danger pe-2' /> Logout
+                        </Link>
 
                     </div>
 
