@@ -3,8 +3,6 @@ const { setupTitlebar, attachTitlebarToWindow } = require("custom-electron-title
 const path = require('path');
 const electron = require('electron');
 
-setupTitlebar();
-
 let mainWindow;
 let tray;
 const NOTIFICATION_TITLE = 'Read New Messages'
@@ -57,25 +55,18 @@ app.on('ready', () => {
     mainWindow = new BrowserWindow({
         width: 1150,
         height: 750,
-        titleBarStyle: 'hidden',
-        titleBarOverlay: true,
+        autoHideMenuBar: true,
         webPreferences: {
             nodeIntegration: true,
             enableRemoteModule: true,
             sandbox: false,
             preload: path.join(__dirname, 'preload.js'),
-            // webSecurity: true,
-            // allowFileAccess: false,
             webviewTag: true
         },
         frame: true,
-        autoHideMenuBar: true,
         icon: path.join(__dirname, '../src/assets/img/logo.png'),
     });
 
-    attachTitlebarToWindow(mainWindow);
-
-    mainWindow.setMenuBarVisibility(false)
     mainWindow.loadURL(startURL);
 
     showNotification();

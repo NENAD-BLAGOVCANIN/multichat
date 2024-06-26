@@ -94,7 +94,7 @@ body {
 }
 
 .tabs-nav .tab-content {
-  max-height: calc(100vh - 56px);
+  max-height: calc(100vh - 25px);
   height: 100%;
   overflow: auto;
 }

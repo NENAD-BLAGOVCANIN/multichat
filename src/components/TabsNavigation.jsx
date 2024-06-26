@@ -71,7 +71,7 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
             <div>
                 <Tabs className='border-0 pt-1 w-100' style={{ overflow: 'visible !important' }} activeKey={selectedTab} onSelect={(key) => setSelectedTab(key)}>
                     <Tab eventKey="welcome" className='px-0' title={
-                        <div className="tab-item">
+                        <div className="tab-item d-none">
                             <span className='ps-2 px-2 py-1 color-text-lighter medium'>🏠</span>
                             {/* <div className='options-tab-button hover-light rounded-circle me-1' onClick={(event) => handleOpenOptionsDropdown(event, welcome_tab_id)}>
                                 <FontAwesomeIcon icon={faEllipsisV} className='small' />
