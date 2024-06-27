@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCircleUp, faShare, faThunderstorm, faUser } from '@fortawesome/free-solid-svg-icons';
 import { faBoltLightning, faDiamond, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { getUserInfo } from '../../../api/user';
@@ -116,6 +116,22 @@ function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, 
                     <p className='bold mt-5'>
                         Account
                     </p>
+
+                    <div className="form-group mb-3">
+
+                        <a href='https://multi-chat.io/account/' className='text-decoration-none medium py-2 color-text'>
+                            <FontAwesomeIcon icon={faCircleUp} className='pe-2' /> Check for updates
+                        </a>
+
+                    </div>
+
+                    <div className="form-group mb-3">
+
+                        <a href='https://multi-chat.io/account/' className='text-decoration-none medium py-2 color-text'>
+                            <FontAwesomeIcon icon={faShare} className='pe-2' /> View subscription details
+                        </a>
+
+                    </div>
 
                     <div className="form-group mb-3">
 
