@@ -24,25 +24,25 @@
     "dotenv": "^16.4.5",
     "electron-reload": "^2.0.0-alpha.1",
     "fs": "^0.0.1-security",
+    "i18next": "^23.11.5",
+    "i18next-browser-languagedetector": "^8.0.0",
     "jwt-decode": "^4.0.0",
     "path-browserify": "^1.0.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18.2.0",
+    "react-i18next": "^14.1.1",
     "react-router": "^6.22.3",
     "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
     "react-toastify": "^10.0.5",
     "wait-on": "^7.2.0",
     "web-vitals": "^2.1.4",
-    "webpack": "^5.91.0",
-    "i18next": "^23.11.5",
-    "i18next-browser-languagedetector": "^8.0.0",
-    "react-i18next": "^14.1.1"
+    "webpack": "^5.91.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && electron-builder ",
+    "build": "react-scripts build && electron-builder",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "electron:serve": "concurrently -k \"cross-env BROWSER=none npm start\" \"npm run electron:start\"",
@@ -53,6 +53,10 @@
     "appId": "com.multi.chat",
     "productName": "Multichat",
     "extends": null,
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
     "mac": {
       "publish": {
         "provider": "github",
@@ -70,7 +74,15 @@
         "repo": "Repository Name",
         "private": true,
         "token": ""
-      }
+      },
+      "target": [
+        {
+          "target": "nsis-web",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
     },
     "files": [
       "dist/**/*",
