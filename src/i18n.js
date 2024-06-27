@@ -77,113 +77,68 @@ i18n
             },
             zh: {
                 translation: {
-                    navbar: {
-                        home: "首頁",
-                        downloads: "下載",
-                        subscriptions: "訂閱",
-                        docs: "文檔",
-                        sign_up: "註冊"
+                    create_new_chat: {
+                        title: "创建新聊天",
+                        title_label: "标题",
+                        description_label: "描述（可选）",
+                        messaging_service_label: "选择消息服务",
+                        create: "创建"
                     },
                     home: {
-                        hero_section: {
-                            title: "歡迎來到 Multichat",
-                            subtitle: "從一個平台訪問您的所有消息。",
-                            download_for_windows: "下載 Windows 版"
-                        },
-                        section_2: {
-                            title: "聚合您的對話",
-                            subtitle: `歡迎來到 MultiChat，您的全方位消息解決方案
-                                旨在簡化您的數字通信體驗。
-                                使用 MultiChat，您可以方便地在一個集中位置管理多個消息服務。
-                                告別在應用間切換，迎接輕鬆多任務處理。`
-                        },
-                        platforms: {
-                            title: "Multichat 讓您可以從許多主要的消息平台發送和接收消息："
-                        },
-                        features: {
-                            title: "功能",
-                            box_1: {
-                                title: "黑暗和光明模式",
-                                text: "選擇您喜好的配色方案以減少眼睛疲勞。"
-                            },
-                            box_2: {
-                                title: "鍵盤快捷鍵",
-                                text: "使用我們廣泛的鍵盤支持，以光速移動。"
-                            },
-                            box_3: {
-                                title: "可自定義的用戶界面",
-                                text: "根據您的喜好自定義用戶界面。"
-                            },
-                            box_4: {
-                                title: "隱私與安全",
-                                text: "您的所有消息都經過端到端加密，因此您可以私下與朋友和家人通信。"
-                            },
-                            box_5: {
-                                title: "無限帳戶",
-                                text: "打開任意多的標籤，每個標籤都有自己的會話和獨特的憑據。"
-                            },
-                            box_6: {
-                                title: "通知",
-                                text: "控制您的通知，在忙碌時暫停或靜音您的消息。"
-                            }
-                        }
+                        create_new_tab: "开始创建新标签"
                     },
-                    downloads: {
-                        downloads: "下載",
-                        version: "版本",
-                        size: "大小",
-                        download_btn: "下載",
-                        system_reqs: "系統要求"
+                    user_settings: {
+                        title: "用户设置",
+                        upgrade_to_premium: "升级到高级版",
+                        current_plan: "当前计划：Multichat 免费版",
+                        light_dark_mode: "浅色/深色模式",
+                        enable_spell_check: "启用拼写检查",
+                        select_language: "选择语言",
+                        account: "账户",
+                        check_for_updates: "检查更新",
+                        view_subscription_details: "查看订阅详情",
+                        logout: "登出"
                     },
-                    footer: {
-                        website_description: `您的全方位消息解決方案，旨在簡化您的數字通信體驗。
-                            使用 Multichat，您可以方便地在一個集中位置管理多個消息服務。`,
-                        newsletter: {
-                            label: "註冊我們的新聞通訊：",
-                            your_email: "您的電子郵件"
-                        },
-                        quick_links: "快速連結",
-                        home: "首頁",
-                        blog: "博客",
-                        features_and_privacy: "功能與隱私",
-                        info: "信息",
-                        privacy_policy: "隱私政策",
-                        user_agreement: "用戶協議",
-                        about_us: "關於我們",
-                        users: "用戶",
-                        sign_up: "註冊",
-                        log_in: "登錄",
-                        contact_support: "聯繫支持",
-                        contact: "聯繫",
-                        contact_live_support: "聯繫實時支持"
+                    chat_settings: {
+                        title: "聊天设置",
+                        title_label: "标题",
+                        enable_audio_notifications: "启用音频通知",
+                        enable_message_notifications: "启用消息通知",
+                        save_changes: "保存更改"
+                    },
+                    delete_chat: {
+                        title: "删除聊天",
+                        text: "你确定要删除这个聊天吗？",
+                        subtext: "删除此聊天后，所有数据包括凭据、历史记录和设置将永久丢失。",
+                        delete: "删除"
                     },
                     login: {
-                        remember_pass: "記住14天",
-                        trouble_logging_in: "登錄遇到問題？",
-                        enter_your_email: "輸入您的電子郵件",
-                        welcome: "歡迎回來！請輸入您的詳細信息。",
-                        login: "登錄",
-                        email: "電子郵件",
-                        password: "密碼",
-                        forgot_password: "忘記密碼？",
-                        dont_have_an_account: "還沒有帳號？",
-                        sign_up: "註冊"
+                        remember_pass: "记住 14 天",
+                        trouble_logging_in: "登录遇到问题？",
+                        enter_your_email: "输入你的电子邮件",
+                        welcome: "欢迎回来！请输入您的详细信息。",
+                        login: "登录",
+                        email: "电子邮件",
+                        password: "密码",
+                        forgot_password: "忘记密码？",
+                        dont_have_an_account: "还没有账户？",
+                        sign_up: "注册"
                     },
                     register: {
-                        sign_up: "註冊",
-                        welcome: "歡迎！請輸入您的詳細信息。",
+                        sign_up: "注册",
+                        welcome: "欢迎！请输入您的详细信息。",
                         name: "姓名",
-                        email: "電子郵件",
-                        password: "密碼",
-                        enter_your_name: "輸入您的姓名",
-                        enter_your_email: "輸入您的電子郵件",
-                        remember_me: "記住我",
-                        login: "登錄",
-                        already_have_an_account: "已經有帳號？"
+                        email: "电子邮件",
+                        password: "密码",
+                        enter_your_name: "输入你的名字",
+                        enter_your_email: "输入你的电子邮件",
+                        remember_me: "记住我",
+                        login: "登录",
+                        already_have_an_account: "已经有账户？"
                     }
                 }
+            }
 
-            },
         }
     }
     );
