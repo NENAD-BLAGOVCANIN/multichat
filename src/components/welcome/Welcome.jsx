@@ -15,7 +15,7 @@ function Welcome() {
 
     return (
         <div className='main-content-wrapper p-0'>
-            <div className='d-flex align-items-center justify-content-center' style={{ height: '100vh' }}>
+            <div className='d-flex align-items-center justify-content-center' style={{ height: 'calc(100vh - 50px)' }}>
                 <div className='d-flex flex-column align-items-center'>
                     <p className='mb-2'>Start by creating a new tab</p>
                     <p className='mb-2'><FontAwesomeIcon icon={faPlus} /></p>

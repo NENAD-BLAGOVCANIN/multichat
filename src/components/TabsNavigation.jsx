@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsisV, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisV, faPlus, faUser } from '@fortawesome/free-solid-svg-icons';
 import Welcome from './welcome/Welcome';
 import { getChats } from '../api/chat';
 import CreateNewChat from './tab/CreateNewChat';
@@ -69,7 +69,7 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
     return (
         <div className='tabs-nav bg-app'>
             <div>
-                <Tabs className='border-0 pt-1 w-100' style={{ overflow: 'visible !important' }} activeKey={selectedTab} onSelect={(key) => setSelectedTab(key)}>
+                <Tabs className='border-0 pt-1 w-100 px-2' style={{ overflow: 'visible !important' }} activeKey={selectedTab} onSelect={(key) => setSelectedTab(key)}>
                     <Tab eventKey="welcome" className='px-0' title={
                         <div className="tab-item d-none">
                             <span className='ps-2 px-2 py-1 color-text-lighter medium'>🏠</span>
@@ -119,7 +119,7 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
 
                     <Tab eventKey="my-account" title={
                         <div className="tab-item px-3" onClick={(event) => openAccountSettingsModal(event)}>
-                            <img src={ProfilePlaceholderImage} className='rounded border mb-1' alt="" style={{ height: 25, width: 'auto' }} />
+                            <FontAwesomeIcon icon={faUser} className='m-0' />
                         </div>
                     }>
                     </Tab>
