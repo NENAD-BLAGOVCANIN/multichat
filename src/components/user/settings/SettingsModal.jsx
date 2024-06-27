@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
-import ProfilePlaceholderImage from '../../../assets/img/ProfilePlaceholderImage.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faBoltLightning, faDiamond, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { getUserInfo } from '../../../api/user';
@@ -8,6 +8,7 @@ import BootstrapSwitchButton from 'bootstrap-switch-button-react'
 import DownloadPath from './DownloadPath';
 import { Modal } from 'react-bootstrap';
 import LanguageSelector from './LanguageSelector';
+import { ReactComponent as UserIcon } from '../../../assets/img/svg/user.svg'
 
 function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
 
@@ -58,31 +59,27 @@ function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, 
 
                 <Modal.Body className='py-4'>
 
-                    <div>
-                        <img src={ProfilePlaceholderImage} className='rounded-circle m-auto d-block px-3' alt="" style={{ height: 85, width: 'auto' }} />
+                    <div className='text-center'>
+                        <UserIcon />
                     </div>
 
                     <div>
-                        <span className="modal-title text-center m-auto d-block my-2 bold">{userInfo.name}</span>
+                        <span className="modal-title text-center m-auto d-block mt-2 bold">{userInfo.name}</span>
                         <span className='small color-text-lighter text-center m-auto d-block'>{userInfo.email}</span>
                     </div>
                     <div className='py-3'>
-                        <span className='medium text-center m-auto d-block py-2'>
-                            Current plan: <b>Multichat Free</b>
-                        </span>
-                        <a className='btn btn-basic bg-transparent m-auto d-block py-3 my-2 medium border px-3 py-2 color-text'>
-                            <FontAwesomeIcon icon={faBoltLightning} className='text-warning pe-2' /> Purchase premium
+                        <a href="https://multi-chat.io/pricing" className='btn btn-basic bg-info m-auto fw-500 d-block py-3 my-2 medium border px-3 py-2 text-color'>
+                            <FontAwesomeIcon icon={faBoltLightning} className='text-warning pe-2' /> Upgrade to premium
                         </a>
+                        <span className='small text-center m-auto d-block pb-2'>
+                            Current plan: Multichat Free
+                        </span>
                     </div>
 
 
+                    <div className="form-group py-2 d-flex justify-content-between align-items-center">
 
-                    <span className='bold'>
-                        Appearence
-                    </span>
-
-                    <div className="form-group py-4 mb-3">
-
+                        <label>Light/dark mode</label>
 
                         <BootstrapSwitchButton
                             checked={darkMode}
@@ -92,16 +89,11 @@ function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, 
                             onChange={toggleDarkMode}
                         />
 
-                        <label className='small ps-2'> Light/dark mode</label>
-
                     </div>
 
-                    <span className='bold'>
-                        Language
-                    </span>
+                    <div className="form-group py-2 d-flex justify-content-between align-items-center">
 
-                    <div className="form-group py-4 mb-3">
-
+                        <label>Enable spell check</label>
 
                         <BootstrapSwitchButton
                             checked={spellCheck}
@@ -109,22 +101,25 @@ function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, 
                             onChange={toggleSpellCheck}
                         />
 
-                        <label className='small ps-2'> Enable spell check</label>
+
+
+                    </div>
+
+                    <div className="form-group py-2 d-flex justify-content-between align-items-center">
+
+                        <label> Select language</label>
 
                         <LanguageSelector />
 
                     </div>
 
-
-                        
-                    <span className='bold'>
+                    <p className='bold mt-5'>
                         Account
-                    </span>
+                    </p>
 
-                    <div className="form-group py-4 mb-3">
+                    <div className="form-group mb-3">
 
-
-                        <Link to='/logout' className='btn btn-basic bg-transparent small border px-3 py-2 color-text'>
+                        <Link to='/logout' className='text-decoration-none medium py-2 color-text'>
                             <FontAwesomeIcon icon={faRightFromBracket} className='text-danger pe-2' /> Logout
                         </Link>
 

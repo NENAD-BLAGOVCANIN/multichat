@@ -1,10 +1,4 @@
 import React from 'react'
-import logo from '../../assets/img/logo.png'
-import Features from './Features'
-import Footer from './Footer'
-import PlatformsView from './PlatformsView'
-import multichatExample from '../../assets/img/multichatExample.webp'
-import messagingExample from '../../assets/img/messagingScreensExample.png'
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'

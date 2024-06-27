@@ -33,14 +33,13 @@ const LanguageSelector = () => {
     return (
         <div className='d-flex align-items-center pt-3'>
             <select onChange={handleChange} value={currentLanguage} 
-                className="form-select w-fit">
+                className="bg-transparent color-text border-0 w-fit">
                 {Object.keys(lngs).map((lng) => (
                     <option key={lng} value={lng}>
-                        {lngs[lng].code}
+                        {lngs[lng].nativeName}
                     </option>
                 ))}
             </select>
-            <label className='small ps-2'> Select language</label>
         </div>
     );
 };
