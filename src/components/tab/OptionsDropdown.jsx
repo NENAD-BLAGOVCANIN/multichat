@@ -4,8 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose, faEllipsisV, faGear, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ReactComponent as TrashIcon } from '../../assets/img/svg/trash.svg'
 import { ReactComponent as SettingsIcon } from '../../assets/img/svg/settings.svg'
+import { useTranslation } from 'react-i18next';
 
 function OptionsDropdown({ tabId, chat = null, closeOptionsDropdown, openDeleteTabModal, openTabSettingsModal }) {
+
+    const { t } = useTranslation();
+
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (!event.target.closest('.dropdown-menu')) {
@@ -24,14 +28,14 @@ function OptionsDropdown({ tabId, chat = null, closeOptionsDropdown, openDeleteT
             <Dropdown.Item className="hover d-flex align-items-center" onClick={(event) => { openTabSettingsModal(event, chat) }}>
                 <SettingsIcon />
                 <span className='ps-2 medium'>
-                    Chat settings
+                    {t('chat_settings.title')}
                 </span>
 
             </Dropdown.Item>
             <Dropdown.Item className="hover text-danger d-flex align-items-center" onClick={(event) => { openDeleteTabModal(event, chat) }}>
                 <TrashIcon />
                 <span className='ps-2 medium'>
-                    Delete chat
+                    {t('delete_chat.title')}
                 </span>
             </Dropdown.Item>
         </Dropdown.Menu>

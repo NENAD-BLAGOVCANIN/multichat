@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { Modal } from 'react-bootstrap';
 import { updateChat } from '../../api/chat';
 import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
 
 function TabSettingsModal({ chats, setChats, darkMode, selectedSettingsChat, setSelectedSettingsChat, showTabSettingsModal, setShowTabSettingsModal }) {
+
+    const { t } = useTranslation();
 
     const [title, setTitle] = useState('');
     const [isAudioEnabled, setIsAudioEnabled] = useState(false);
@@ -53,7 +56,7 @@ function TabSettingsModal({ chats, setChats, darkMode, selectedSettingsChat, set
 
                 <Modal.Header className='border-0'>
                     <Modal.Title className='bold h5'>
-                        Chat settings
+                        {t('chat_settings.title')}
                     </Modal.Title>
                     <button type="button" onClick={() => { handleCloseModal() }}
                         className={`btn-close ${darkMode ? 'btn-close-white' : ''}`} aria-label="Close">
@@ -63,7 +66,7 @@ function TabSettingsModal({ chats, setChats, darkMode, selectedSettingsChat, set
 
                 <Modal.Body className='pt-4'>
 
-                    <label className='mt-4 mb-2 medium'>Title <span className='text-danger'>*</span></label>
+                    <label className='mt-4 mb-2 medium'>{t('chat_settings.title_label')} <span className='text-danger'>*</span></label>
                     <input type="text"
                         className='form-control medium'
                         placeholder='ex. WhatsApp Business Account'
@@ -74,19 +77,21 @@ function TabSettingsModal({ chats, setChats, darkMode, selectedSettingsChat, set
                     <div className="form-check pt-4">
                         <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" checked={isAudioEnabled} onChange={(event) => setIsAudioEnabled(event.target.checked)} />
                         <label className="form-check-label" htmlFor="defaultCheck1">
-                            Enable Audio notifications
+                            {t('chat_settings.enable_audio_notifications')}
                         </label>
                     </div>
 
                     <div className="form-check pt-2">
                         <input className="form-check-input" type="checkbox" value="" id="defaultCheck2" checked={isMessageEnabled} onChange={(event) => setIsMessageEnabled(event.target.checked)} />
                         <label className="form-check-label" htmlFor="defaultCheck2">
-                            Enable Message Notifications
+                            {t('chat_settings.enable_message_notifications')}
                         </label>
                     </div>
 
                     <div className='pt-5 pb-2 mt-3 d-flex justify-content-end'>
-                        <button className='btn btn-primary medium' onClick={() => { handleSaveChanges() }}>Save changes</button>
+                        <button className='btn btn-primary medium' onClick={() => { handleSaveChanges() }}>
+                            {t('chat_settings.save_changes')}
+                        </button>
                     </div>
 
                 </Modal.Body>

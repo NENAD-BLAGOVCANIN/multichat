@@ -14,86 +14,40 @@ i18n
         resources: {
             en: {
                 translation: {
-                    navbar: {
-                        home: "Home",
-                        downloads: "Downloads",
-                        subscriptions: "Subscriptions",
-                        docs: "Docs",
-                        sign_up: "Sign up"
+                    create_new_chat: {
+                        title: "Create new chat",
+                        title_label: "Title",
+                        description_label: "Description (optional)",
+                        messaging_service_label: "Select messaging service",
+                        create: "Create"
                     },
                     home: {
-                        hero_section: {
-                            title: "Welcome to Multichat",
-                            subtitle: "Access all of your messages from one platform.",
-                            download_for_windows: "Download for Windows"
-                        },
-                        section_2: {
-                            title: "Bringing Your Conversations Together",
-                            subtitle: `Welcome to MultiChat, your all-in-one messaging solution 
-                            designed to streamline your digital communication experience. 
-                            With MultiChat, you can conveniently manage multiple messaging services in one centralized location. 
-                            Say goodbye to switching between apps and hello to effortless multitasking.`
-                        },
-                        platforms: {
-                            title: "Multichat lets you send and receive messages from many major messaging platforms:"
-                        },
-                        features: {
-                            title: "Features",
-                            box_1: {
-                                title: "Dark & Light Modes",
-                                text: "Choose your preferred color scheme to reduce eye strain."
-                            },
-                            box_2: {
-                                title: "Keyboard Shortcuts",
-                                text: "Move at the speed of light with our extensive keyboard support."
-                            },
-                            box_3: {
-                                title: "Customizable UI",
-                                text: "Customize the UI based on your preferences."
-                            },
-                            box_4: {
-                                title: "Privacy and Security",
-                                text: "All of your messages are e2e encrypted, so you can communicate privately with your friends and family."
-                            },
-                            box_5: {
-                                title: "Unlimited accounts",
-                                text: "Open as meny tabs as you like, with each tab having it's own session with unique credentials"
-                            },
-                            box_6: {
-                                title: "Notifications",
-                                text: "Control your notifications, snooze or mute your messages when busy."
-                            },
-                        }
+                        create_new_tab: "Start by creating a new tab"
                     },
-                    downloads: {
-                        downloads: 'Downloads',
-                        version: "VERSION",
-                        size: "SIZE",
-                        download_btn: "Download",
-                        system_reqs: "System Requirements",
+                    user_settings: {
+                        title: "User settings",
+                        upgrade_to_premium: "Upgrade to premium",
+                        current_plan: "Current plan: Multichat Free",
+                        light_dark_mode: "Light/dark mode",
+                        enable_spell_check: "Enable spell check",
+                        select_language: "Select language",
+                        account: "Account",
+                        check_for_updates: "Check for updates",
+                        view_subscription_details: "View subscription details",
+                        logout: "Logout"
                     },
-                    footer: {
-                        website_description: `Your all-in-one messaging solution designed to streamline your 
-                            digital communication experience. With Multichat, you can conveniently manage multiple
-                            messaging services in one centralized location.`,
-                        newsletter: {
-                            label: "Sign up for our newsletter:",
-                            your_email: "Your Email",
-                        },
-                        quick_links: "Quick Links",
-                        home: "Home",
-                        blog: "Blog",
-                        features_and_privacy: "Features & Privacy",
-                        info: "Info",
-                        privacy_policy: "Privacy Policy",
-                        user_agreement: "User Agreement",
-                        about_us: "About Us",
-                        users: "Users",
-                        sign_up: "Sign Up",
-                        log_in: "Log In",
-                        contact_support: "Contact Support",
-                        contact: "Contact",
-                        contact_live_support: "Contact live support",
+                    chat_settings: {
+                        title: "Chat settings",
+                        title_label: "Title",
+                        enable_audio_notifications: "Enable Audio notifications",
+                        enable_message_notifications: "Enable Message Notifications",
+                        save_changes: "Save changes"
+                    },
+                    delete_chat: {
+                        title: "Delete chat",
+                        text: "Are you sure you want to delete this chat?",
+                        subtext: "After you delete this chat, all of your data including your credentials, history and settings will be permanently gone.",
+                        delete: "Delete"
                     },
                     login: {
                         remember_pass: "Remember for 14 days",

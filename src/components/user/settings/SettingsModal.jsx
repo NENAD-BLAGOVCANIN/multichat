@@ -9,8 +9,11 @@ import DownloadPath from './DownloadPath';
 import { Modal } from 'react-bootstrap';
 import LanguageSelector from './LanguageSelector';
 import { ReactComponent as UserIcon } from '../../../assets/img/svg/user.svg'
+import { useTranslation } from 'react-i18next';
 
 function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
+
+    const { t } = useTranslation();
 
     const [userInfo, setUserInfo] = useState([]);
 
@@ -49,7 +52,7 @@ function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, 
             >
                 <Modal.Header className='border-0'>
                     <Modal.Title className='bold h5'>
-                        User settings
+                        {t('user_settings.title')}
                     </Modal.Title>
                     <button type="button" onClick={() => { handleCloseModal() }}
                         className={`btn-close ${darkMode ? 'btn-close-white' : ''}`} aria-label="Close">
@@ -69,17 +72,17 @@ function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, 
                     </div>
                     <div className='py-3'>
                         <a href="https://multi-chat.io/pricing" className='btn btn-basic bg-info m-auto fw-500 d-block py-3 my-2 medium border px-3 py-2 text-color'>
-                            <FontAwesomeIcon icon={faBoltLightning} className='text-warning pe-2' /> Upgrade to premium
+                            <FontAwesomeIcon icon={faBoltLightning} className='text-warning pe-2' /> {t('user_settings.upgrade_to_premium')}
                         </a>
                         <span className='small text-center m-auto d-block pb-2'>
-                            Current plan: Multichat Free
+                            {t('user_settings.current_plan')}
                         </span>
                     </div>
 
 
                     <div className="form-group py-2 d-flex justify-content-between align-items-center">
 
-                        <label>Light/dark mode</label>
+                        <label>{t('user_settings.light_dark_mode')}</label>
 
                         <BootstrapSwitchButton
                             checked={darkMode}
@@ -93,7 +96,7 @@ function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, 
 
                     <div className="form-group py-2 d-flex justify-content-between align-items-center">
 
-                        <label>Enable spell check</label>
+                        <label>{t('user_settings.enable_spell_check')}</label>
 
                         <BootstrapSwitchButton
                             checked={spellCheck}
@@ -107,20 +110,21 @@ function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, 
 
                     <div className="form-group py-2 d-flex justify-content-between align-items-center">
 
-                        <label> Select language</label>
+                        <label>{t('user_settings.select_language')}</label>
 
                         <LanguageSelector />
 
                     </div>
 
                     <p className='bold mt-5'>
-                        Account
+                        {t('user_settings.account')}
                     </p>
 
                     <div className="form-group mb-3">
 
                         <a href='https://multi-chat.io/account/' className='text-decoration-none medium py-2 color-text'>
-                            <FontAwesomeIcon icon={faCircleUp} className='pe-2' /> Check for updates
+                            <FontAwesomeIcon icon={faCircleUp} className='pe-2' />
+                            {t('user_settings.check_for_updates')}
                         </a>
 
                     </div>
@@ -128,7 +132,8 @@ function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, 
                     <div className="form-group mb-3">
 
                         <a href='https://multi-chat.io/account/' className='text-decoration-none medium py-2 color-text'>
-                            <FontAwesomeIcon icon={faShare} className='pe-2' /> View subscription details
+                            <FontAwesomeIcon icon={faShare} className='pe-2' /> 
+                            {t('user_settings.view_subscription_details')}
                         </a>
 
                     </div>
@@ -136,7 +141,8 @@ function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, 
                     <div className="form-group mb-3">
 
                         <Link to='/logout' className='text-decoration-none medium py-2 color-text'>
-                            <FontAwesomeIcon icon={faRightFromBracket} className='text-danger pe-2' /> Logout
+                            <FontAwesomeIcon icon={faRightFromBracket} className='text-danger pe-2' />
+                            {t('user_settings.logout')}
                         </Link>
 
                     </div>
