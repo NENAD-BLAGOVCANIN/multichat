@@ -25,11 +25,23 @@
   box-shadow: none !important;
 }
 
-iframe{
+iframe {
   height: 100% !important;
 }
 
-html, body {
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  color: var(--color-text) !important;
+  -webkit-text-fill-color: var(--color-text) !important;
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+html,
+body {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -46,9 +58,12 @@ body,
 
 
 webview {
-  display: block;   /* iframes are inline by default */
-  border: none;     /* Reset default border */
-  height: 80vh;     /* Viewport-relative units */
+  display: block;
+  /* iframes are inline by default */
+  border: none;
+  /* Reset default border */
+  height: 80vh;
+  /* Viewport-relative units */
   width: 95vw;
 }
 
@@ -178,7 +193,7 @@ body {
   font-weight: 400 !important;
 }
 
-.btn-basic.border{
+.btn-basic.border {
   border: 1px solid #6d7379 !important;
 }
 
@@ -200,6 +215,12 @@ body {
   /* Firefox */
 }
 
+input:-internal-autofill-selected {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--color-text) !important;
+}
+
 .small {
   font-size: 13px !important;
 }
@@ -212,6 +233,7 @@ body {
   min-height: 100vh;
   height: 100%;
   display: flex;
+  overflow: auto;
   justify-content: center;
   align-items: center;
   background: var(--background);
@@ -354,14 +376,14 @@ hr {
   border: 1.5px solid var(--color-primary) !important;
 }
 
-.cet-container{
+.cet-container {
   overflow: hidden !important;
 }
 
-.Toastify__toast-container--top-right{
+.Toastify__toast-container--top-right {
   top: 40px !important;
 }
 
-.modal-content{
+.modal-content {
   background-color: var(--background) !important;
 }
