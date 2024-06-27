@@ -331,12 +331,11 @@ hr {
 
 .options-menu-dropdown {
   position: absolute !important;
-  right: 0 !important;
+  left: 0 !important;
   z-index: 999999 !important;
   top: 100% !important;
-  left: unset !important;
-  background: var(--color-main-background) !important;
-  width: 100%;
+  background: var(--background) !important;
+  width: 250px;
 }
 
 .options-menu-dropdown .dropdown-item {

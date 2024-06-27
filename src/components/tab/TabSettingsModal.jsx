@@ -10,7 +10,6 @@ function TabSettingsModal({ chats, setChats, darkMode, selectedSettingsChat, set
     const [isMessageEnabled, setIsMessageEnabled] = useState(false);
 
     const handleCloseModal = () => {
-        window.ipcRenderer.send('show-chat', {});
         setShowTabSettingsModal(false);
     }
 

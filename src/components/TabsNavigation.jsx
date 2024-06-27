@@ -11,6 +11,7 @@ import SettingsModal from './user/settings/SettingsModal';
 import TabSettingsModal from './tab/TabSettingsModal';
 import OptionsDropdown from './tab/OptionsDropdown';
 import Webview from './Webview';
+import { ReactComponent as UserSmallIcon } from '../assets/img/svg/user-sm.svg'
 
 function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
     const [chats, setChats] = useState([]);
@@ -119,7 +120,7 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
 
                     <Tab eventKey="my-account" title={
                         <div className="tab-item px-3" onClick={(event) => openAccountSettingsModal(event)}>
-                            <FontAwesomeIcon icon={faUser} className='m-0' />
+                            <UserSmallIcon />
                         </div>
                     }>
                     </Tab>
