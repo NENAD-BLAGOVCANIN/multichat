@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { register } from '../api/register';
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/img/logo.png'
-import mobileImgExample from '../assets/img/mobile-img-example.png'
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { toast } from 'react-toastify';

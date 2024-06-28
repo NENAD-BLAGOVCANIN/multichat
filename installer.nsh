@@ -1,3 +1,10 @@
+!include "MUI2.nsh"
+!include "nsDialogs.nsh"
+
+Var Dialog
+Var Checkbox
+Var State
+
 !macro customHeader
   !define MUI_PAGE_CUSTOMFUNCTION_SHOW MUI_CUSTOMFUNCTION_SHOW
 !macroend
@@ -13,16 +20,29 @@
 !macroend
 
 !macro customInstall
-  ${If} ${NSD_GetState} $Checkbox $State
-  ${If} $State == ${BST_CHECKED}
-    WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Run" "Multichat" "$INSTDIR\Multichat.exe"
-  ${EndIf}
+  SendMessage $Checkbox ${BM_GETCHECK} 0 0 $State
+  WriteINIStr "$PLUGINSDIR\state.ini" "Settings" "RunAtStartup" $State
+  StrCmp $State ${BST_CHECKED} 0 noStartup
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Run" "Multichat" "$INSTDIR\Multichat.exe"
+  noStartup:
 !macroend
 
-!macro customUnInstall
+!macro un.customUnInstall
   DeleteRegValue HKCU "Software\Microsoft\Windows\CurrentVersion\Run" "Multichat"
 !macroend
 
+Function .onInit
+  InitPluginsDir
+FunctionEnd
+
+Function .onInstSuccess
+  Call customInstall
+FunctionEnd
+
+Function un.onUninstSuccess
+  Call un.customUnInstall
+FunctionEnd
+
+Page custom MUI_CUSTOMFUNCTION_SHOW
+
 !insertmacro customHeader
-!insertmacro customInstall
-!insertmacro customUnInstall

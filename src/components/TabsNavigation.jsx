@@ -5,7 +5,6 @@ import { faEllipsisV, faPlus, faUser } from '@fortawesome/free-solid-svg-icons';
 import Welcome from './welcome/Welcome';
 import { getChats } from '../api/chat';
 import CreateNewChat from './tab/CreateNewChat';
-import ProfilePlaceholderImage from '../assets/img/ProfilePlaceholderImage.svg';
 import DeleteTabModal from './tab/DeleteTabModal';
 import SettingsModal from './user/settings/SettingsModal';
 import TabSettingsModal from './tab/TabSettingsModal';

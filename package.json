@@ -1,7 +1,7 @@
 {
   "name": "multichat",
   "description": "Desktop application that enables users to use multiple messaging services from one app.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "main": "public/main.js",
   "homepage": "./",
@@ -56,8 +56,7 @@
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
-      "createStartMenuShortcut": true,
-      "include": "installer.nsh"
+      "createStartMenuShortcut": true
     },
     "mac": {
       "publish": {
