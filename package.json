@@ -1,7 +1,7 @@
 {
   "name": "multichat",
   "description": "Desktop application that enables users to use multiple messaging services from one app.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "main": "public/main.js",
   "homepage": "./",
@@ -71,8 +71,8 @@
       "icon": "./src/assets/img/logo.png",
       "publish": {
         "provider": "github",
-        "owner": "Github Owner",
-        "repo": "Repository Name",
+        "owner": "NENAD-BLAGOVCANIN",
+        "repo": "multichat-v2",
         "private": true,
         "token": ""
       },
@@ -99,7 +99,7 @@
     "publish": {
       "provider": "github",
       "private": true,
-      "owner": "Github Owner"
+      "owner": "NENAD-BLAGOVCANIN"
     }
   },
   "eslintConfig": {
