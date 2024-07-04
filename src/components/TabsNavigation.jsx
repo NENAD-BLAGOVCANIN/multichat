@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsisV, faPlus, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faClose, faEllipsisV, faPlus, faUser, faX } from '@fortawesome/free-solid-svg-icons';
 import Welcome from './welcome/Welcome';
 import { getChats } from '../api/chat';
 import CreateNewChat from './tab/CreateNewChat';
 import DeleteTabModal from './tab/DeleteTabModal';
 import SettingsModal from './user/settings/SettingsModal';
 import TabSettingsModal from './tab/TabSettingsModal';
-import OptionsDropdown from './tab/OptionsDropdown';
 import Webview from './Webview';
 import { ReactComponent as UserSmallIcon } from '../assets/img/svg/user-sm.svg'
 
@@ -21,7 +20,6 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
     const [selectedSettingsChat, setSelectedSettingsChat] = useState(null);
     const [showAccountSettingsModal, setShowAccountSettingsModal] = useState(false);
     const [showOptionsDropdown, setShowOptionsDropdown] = useState(null);
-
 
 
     const welcome_tab_id = "welcome";
@@ -70,15 +68,7 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
         <div className='tabs-nav bg-app'>
             <div>
                 <Tabs className='border-0 pt-1 w-100 px-2' style={{ overflow: 'visible !important' }} activeKey={selectedTab} onSelect={(key) => setSelectedTab(key)}>
-                    <Tab eventKey="welcome" className='px-0' title={
-                        <div className="tab-item d-none">
-                            <span className='ps-2 px-2 py-1 color-text-lighter medium'>🏠</span>
-                            {/* <div className='options-tab-button hover-light rounded-circle me-1' onClick={(event) => handleOpenOptionsDropdown(event, welcome_tab_id)}>
-                                <FontAwesomeIcon icon={faEllipsisV} className='small' />
-                            </div> */}
-                            {/* {showOptionsDropdown === welcome_tab_id && <OptionsDropdown tabId={welcome_tab_id} closeOptionsDropdown={closeOptionsDropdown} openDeleteTabModal={openDeleteTabModal} openTabSettingsModal={openTabSettingsModal} />} */}
-                        </div>
-                    }>
+                    <Tab eventKey="welcome" className='px-0'>
                         <Welcome />
 
                     </Tab>
@@ -91,13 +81,12 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
                             title={
                                 <div className="tab-item">
                                     <img src={chat.messaging_service.icon + '?v=2'} className='tab-icon' />
-                                    <span className='ps-2 px-2 py-1 color-text-lighter medium'>{chat.title}</span>
+                                    <div className='ps-2 p-1 color-text-lighter medium'>{chat.title}</div>
                                     <div className='d-flex align-items-center ps-4'>
-                                        <div className='options-tab-button hover-light rounded-circle me-1' onClick={(event) => handleOpenOptionsDropdown(event, chat.id)}>
-                                            <FontAwesomeIcon icon={faEllipsisV} className='small' />
+                                        <div className='options-tab-button hover-light rounded-circle me-1' onClick={(event) => { openDeleteTabModal(event, chat) }}>
+                                            <FontAwesomeIcon icon={faClose} className='small' />
                                         </div>
                                     </div>
-                                    {showOptionsDropdown === chat.id && <OptionsDropdown tabId={chat.id} chat={chat} closeOptionsDropdown={closeOptionsDropdown} openDeleteTabModal={openDeleteTabModal} openTabSettingsModal={openTabSettingsModal} />}
                                 </div>
                             }
                         >
