@@ -32,6 +32,7 @@ function CreateNewChat({ chats, setChats, selectedTab, setSelectedTab }) {
             setChats(updatedChats);
             setSelectedTab(newChat.id);
             setTitle('');
+            setError('');
 
         } catch (error) {
             setError(error);

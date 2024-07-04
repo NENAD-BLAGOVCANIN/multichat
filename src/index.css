@@ -121,6 +121,7 @@ body {
 
 .tabs-nav .nav-item .nav-link .tab-item span {
   color: var(--color-text) !important;
+  white-space: nowrap;
 }
 
 .nav-tabs .nav-item .nav-link {
@@ -320,7 +321,7 @@ hr {
 }
 
 .nav-tabs {
-  overflow: visible !important;
+  overflow: auto !important;
   max-width: 100vw !important;
   flex-wrap: nowrap !important;
 }
