@@ -15,7 +15,7 @@ i18n
             en: {
                 translation: {
                     create_new_chat: {
-                        title: "Create new chat",
+                        title: "Create new tab",
                         title_label: "Title",
                         description_label: "Description (optional)",
                         messaging_service_label: "Select messaging service",

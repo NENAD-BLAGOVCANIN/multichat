@@ -52,7 +52,8 @@ function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, 
             >
                 <Modal.Header className='border-0'>
                     <Modal.Title className='bold h5'>
-                        {t('user_settings.title')}
+                        {userInfo.name}
+                        <span className='small fw-400 color-text-lighter text-center m-auto d-block'>{userInfo.email}</span>
                     </Modal.Title>
                     <button type="button" onClick={() => { handleCloseModal() }}
                         className={`btn-close ${darkMode ? 'btn-close-white' : ''}`} aria-label="Close">
@@ -60,16 +61,8 @@ function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, 
 
                 </Modal.Header>
 
-                <Modal.Body className='py-4'>
+                <Modal.Body className='pb-4 pt-0'>
 
-                    <div className='text-center'>
-                        <UserIcon />
-                    </div>
-
-                    <div>
-                        <span className="modal-title text-center m-auto d-block mt-2 bold">{userInfo.name}</span>
-                        <span className='small color-text-lighter text-center m-auto d-block'>{userInfo.email}</span>
-                    </div>
                     <div className='py-3'>
                         <a href="https://multi-chat.io/pricing" className='btn btn-basic bg-info m-auto fw-500 d-block py-3 my-2 medium border px-3 py-2 text-color'>
                             <FontAwesomeIcon icon={faBoltLightning} className='text-warning pe-2' /> {t('user_settings.upgrade_to_premium')}
@@ -132,7 +125,7 @@ function SettingsModal({ showAccountSettingsModal, setShowAccountSettingsModal, 
                     <div className="form-group mb-3">
 
                         <a href='https://multi-chat.io/account/' className='text-decoration-none medium py-2 color-text'>
-                            <FontAwesomeIcon icon={faShare} className='pe-2' /> 
+                            <FontAwesomeIcon icon={faShare} className='pe-2' />
                             {t('user_settings.view_subscription_details')}
                         </a>
 
