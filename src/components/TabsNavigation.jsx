@@ -70,7 +70,6 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
                 <Tabs className='border-0 pt-1 w-100 px-2' style={{ overflow: 'visible !important' }} activeKey={selectedTab} onSelect={(key) => setSelectedTab(key)}>
                     <Tab eventKey="welcome" className='px-0'>
                         <Welcome />
-
                     </Tab>
 
                     {chats?.map((chat) =>

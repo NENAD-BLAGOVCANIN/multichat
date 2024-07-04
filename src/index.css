@@ -317,7 +317,8 @@ hr {
 }
 
 .nav-tabs {
-
+  overflow-x: auto;
+  overflow-y: hidden;
   max-width: 100% !important;
   flex-wrap: nowrap !important;
 }
@@ -325,6 +326,16 @@ hr {
 .options-tab-button {
   padding: 0 .4rem !important;
   z-index: 99999999 !important;
+}
+
+.tab-item .options-tab-button {
+  visibility: hidden;
+  transition: visibility 0.15s;
+}
+
+.tab-item:hover .options-tab-button,
+.nav-tabs .nav-item .nav-link.active .options-tab-button {
+  visibility: visible;
 }
 
 .opacity-80 {
