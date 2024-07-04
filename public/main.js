@@ -8,7 +8,7 @@ let tray;
 const NOTIFICATION_TITLE = 'Read New Messages'
 const NOTIFICATION_BODY = 'Checkout your new messages on Multichat.'
 const appPath = path.resolve(app.getPath('exe'));
-const isDev = false;
+const isDev = true;
 
 const startURL = isDev
     ? 'http://localhost:3000'
@@ -22,13 +22,13 @@ if (!isDev) {
 }
 
 
-function showNotification() {
-    new Notification({
-        title: NOTIFICATION_TITLE,
-        body: NOTIFICATION_BODY,
-        icon: path.join(__dirname, '../src/assets/img/logo.png'),
-    }).show();
-}
+// function showNotification() {
+//     new Notification({
+//         title: NOTIFICATION_TITLE,
+//         body: NOTIFICATION_BODY,
+//         icon: path.join(__dirname, '../src/assets/img/logo.png'),
+//     }).show();
+// }
 
 if (process.platform === 'win32') {
     app.setAppUserModelId(app.name)
@@ -69,7 +69,7 @@ app.on('ready', () => {
 
     mainWindow.loadURL(startURL);
 
-    showNotification();
+    // showNotification();
 
     mainWindow.on('closed', () => {
         mainWindow = null;

@@ -380,10 +380,6 @@ hr {
   overflow: hidden !important;
 }
 
-.Toastify__toast-container--top-right {
-  top: 40px !important;
-}
-
 .modal-content {
   background-color: var(--background) !important;
 }
