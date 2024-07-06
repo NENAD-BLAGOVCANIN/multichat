@@ -79,7 +79,7 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
                             className='px-0'
                             title={
                                 <div className="tab-item">
-                                    <img src={chat.messaging_service.icon + '?v=2'} className='tab-icon' />
+                                    <img src={chat.messaging_service.icon + '?v=3'} className='tab-icon' />
                                     <div className='ps-2 p-1 color-text-lighter medium'>{chat.title}</div>
                                     <div className='d-flex align-items-center ps-4'>
                                         <div className='options-tab-button hover-light rounded-circle me-1' onClick={(event) => { openDeleteTabModal(event, chat) }}>
@@ -113,8 +113,13 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
                     </Tab>
 
                 </Tabs>
+                
             </div>
-
+            
+            <div className="px-3" onClick={(event) => openAccountSettingsModal(event)}>
+                    <UserSmallIcon />
+                </div>
+                
             <DeleteTabModal
                 darkMode={darkMode}
                 chats={chats}

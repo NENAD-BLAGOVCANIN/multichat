@@ -3,6 +3,7 @@ import whatsAppLogo from '../../assets/img/WhatsAppLogo.svg'
 import telegramLogo from '../../assets/img/TelegramLogo.svg'
 import skypeLogo from '../../assets/img/SkypeLogo.svg'
 import messengerLogo from '../../assets/img/MessengerLogo.svg'
+import discordLogo from '../../assets/img/DiscordLogo.svg'
 import { createChat } from '../../api/chat'
 import weChatLogo from '../../assets/img/WeChatLogo.svg'
 import { useTranslation } from 'react-i18next';
@@ -84,34 +85,34 @@ function CreateNewChat({ chats, setChats, selectedTab, setSelectedTab }) {
                             <div className='row m-0'>
                                 <div className="col-4 pb-3 px-1">
                                     <button onClick={() => { setSelectedMessagingService('whatsapp') }} className={`btn w-100 d-flex justify-content-center align-items-center small ${selectedMessagingService === 'whatsapp' ? 'btn-primary' : 'btn-basic border'}`} style={{ height: 65 }}>
-                                        <img src={whatsAppLogo} className='img-fluid' style={{ height: 25 }} alt="" />
+                                        <img src={whatsAppLogo} className='img-fluid' style={{ height: 30 }} alt="" />
                                     </button>
                                 </div>
                                 <div className="col-4 pb-3 px-1">
-                                    <button onClick={() => { setSelectedMessagingService('telegram') }} className={`btn w-100 rounded d-flex justify-content-center align-items-center small ${selectedMessagingService === 'telegram' ? 'btn-primary' : 'btn-basic border'}`} style={{ height: 65 }}>
-                                        <img src={telegramLogo} className='img-fluid' style={{ height: 25 }} alt="" />
+                                    <button onClick={() => { setSelectedMessagingService('telegram') }} className={`btn w-100 rounded d-flex justify-content-center align-items-center hover small ${selectedMessagingService === 'telegram' ? 'btn-primary' : 'btn-basic border'}`} style={{ height: 65 }}>
+                                        <img src={telegramLogo} className='img-fluid' style={{ height: 30 }} alt="" />
                                     </button>
                                 </div>
                                 <div className="col-4 pb-3 px-1">
-                                    <button onClick={() => { setSelectedMessagingService('skype') }} className={`btn w-100 rounded d-flex justify-content-center align-items-center small ${selectedMessagingService === 'skype' ? 'btn-primary' : 'btn-basic border'}`} style={{ height: 65 }}>
-                                        <img src={skypeLogo} className='img-fluid' style={{ height: 25 }} alt="" />
+                                    <button onClick={() => { setSelectedMessagingService('skype') }} className={`btn w-100 rounded d-flex justify-content-center align-items-center hover small ${selectedMessagingService === 'skype' ? 'btn-primary' : 'btn-basic border'}`} style={{ height: 65 }}>
+                                        <img src={skypeLogo} className='img-fluid' style={{ height: 30 }} alt="" />
                                     </button>
                                 </div>
                                 <div className="col-4 pb-3 px-1">
-                                    <button onClick={() => { setSelectedMessagingService('messenger') }} className={`btn w-100 rounded d-flex justify-content-center align-items-center small ${selectedMessagingService === 'messenger' ? 'btn-primary' : 'btn-basic border'}`} style={{ height: 65 }}>
-                                        <img src={messengerLogo} className='img-fluid' style={{ height: 25 }} alt="" />
+                                    <button onClick={() => { setSelectedMessagingService('messenger') }} className={`btn w-100 rounded d-flex justify-content-center align-items-center hover small ${selectedMessagingService === 'messenger' ? 'btn-primary' : 'btn-basic border'}`} style={{ height: 65 }}>
+                                        <img src={messengerLogo} className='img-fluid' style={{ height: 30 }} alt="" />
                                     </button>
                                 </div>
                                 <div className="col-4 pb-3 px-1">
-                                    <button onClick={() => { setSelectedMessagingService('wechat') }} className={`btn w-100 rounded d-flex justify-content-center align-items-center small ${selectedMessagingService === 'wechat' ? 'btn-primary' : 'btn-basic border'}`} style={{ height: 65 }}>
-                                        <img src={weChatLogo} className='img-fluid' style={{ height: 25 }} alt="" />
+                                    <button onClick={() => { setSelectedMessagingService('discord') }} className={`btn w-100 rounded d-flex justify-content-center align-items-center hover small ${selectedMessagingService === 'discord' ? 'btn-primary' : 'btn-basic border'}`} style={{ height: 65 }}>
+                                        <img src={discordLogo} className='img-fluid' style={{ height: 25 }} alt="" />
                                     </button>
                                 </div>
-                                {/* <div className="col-4 pb-3 px-1">
-                                    <button onClick={() => { setSelectedMessagingService('line') }} className={`btn w-100 rounded d-flex justify-content-center align-items-center small ${selectedMessagingService === 'line' ? 'btn-primary' : 'btn-basic border'}`} style={{ height: 65 }}>
-                                        <img src={lineLogo} className='img-fluid' style={{ height: 25 }} alt="" />
+                                <div className="col-4 pb-3 px-1">
+                                    <button onClick={() => { setSelectedMessagingService('wechat') }} className={`btn w-100 rounded d-flex justify-content-center align-items-center hover small ${selectedMessagingService === 'wechat' ? 'btn-primary' : 'btn-basic border'}`} style={{ height: 65 }}>
+                                        <img src={weChatLogo} className='img-fluid' style={{ height: 30 }} alt="" />
                                     </button>
-                                </div> */}
+                                </div>
                             </div>
                         </div>
                     </div>
