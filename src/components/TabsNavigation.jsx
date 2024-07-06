@@ -64,6 +64,10 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
         setShowOptionsDropdown(null);
     };
 
+    const handleAddTabButton = () => {
+        setSelectedTab('create-new-chat');
+    }
+
     return (
         <div className='tabs-nav bg-app'>
             <div>
@@ -95,31 +99,25 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
                         </Tab>
                     )}
 
-                    <Tab eventKey="create-new-chat" title={
-                        <div className='btn p-1 color-text d-flex align-items-center'>
-                            <div className="tab-item">
-                                <FontAwesomeIcon className='small' icon={faPlus} />
-                            </div>
-                        </div>
-                    }>
+                    <Tab eventKey="create-new-chat">
                         <CreateNewChat chats={chats} setChats={setChats} selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
                     </Tab>
 
-                    <Tab eventKey="my-account" title={
-                        <div className="tab-item px-3" onClick={(event) => openAccountSettingsModal(event)}>
-                            <UserSmallIcon />
-                        </div>
-                    }>
-                    </Tab>
-
                 </Tabs>
-                
+
             </div>
-            
-            <div className="px-3" onClick={(event) => openAccountSettingsModal(event)}>
-                    <UserSmallIcon />
+
+            <div className="sticky-tools">
+                <div className='d-flex align-items-center justify-content-end h-100'>
+                    <div className='btn p-1 color-text d-flex align-items-center' onClick={handleAddTabButton}>
+                        <FontAwesomeIcon icon={faPlus} />
+                    </div>
+                    <div className='px-3'>
+                        <UserSmallIcon className='pointer' onClick={(event) => openAccountSettingsModal(event)} />
+                    </div>
                 </div>
-                
+            </div>
+
             <DeleteTabModal
                 darkMode={darkMode}
                 chats={chats}

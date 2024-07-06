@@ -45,8 +45,8 @@ i18n
                     },
                     delete_chat: {
                         title: "Delete chat",
-                        text: "Are you sure you want to delete this chat?",
-                        subtext: "After you delete this chat, all of your data including your credentials, history and settings will be permanently gone.",
+                        text: "Are you sure you want to remove this tab?",
+                        subtext: "After you delete this tab, all of your data including your credentials, history and settings will be permanently lost.",
                         delete: "Delete"
                     },
                     login: {

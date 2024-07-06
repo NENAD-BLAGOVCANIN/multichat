@@ -133,10 +133,6 @@ body {
   background: var(--background) !important;
 }
 
-.nav-tabs .nav-item:last-child {
-  margin-left: auto !important;
-}
-
 .bg-gray {
   background-color: var(--color-light-gray) !important;
 }
@@ -239,7 +235,7 @@ input:-internal-autofill-selected {
 }
 
 ::-webkit-scrollbar:horizontal {
-  height: 6px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar {
@@ -251,7 +247,7 @@ input:-internal-autofill-selected {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #a1a1a1;
+  background-color: #5a5a5a;
   border-radius: 2rem
 }
 
@@ -319,8 +315,15 @@ hr {
 .nav-tabs {
   overflow-x: auto;
   overflow-y: hidden;
-  max-width: 100% !important;
+  max-width: 90% !important;
   flex-wrap: nowrap !important;
+}
+
+.sticky-tools{
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 55.5px;
 }
 
 .options-tab-button {
