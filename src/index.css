@@ -256,8 +256,8 @@ input:-internal-autofill-selected {
 }
 
 hr {
-  border-top: 2px solid var(--color-gray) !important;
-  opacity: 1 !important;
+  border-top: 1px solid var(--color-text-lighter) !important;
+  opacity: .6 !important;
 }
 
 .auth-page-logo {

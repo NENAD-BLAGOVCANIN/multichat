@@ -44,7 +44,7 @@ function SettingsModal({ showSettingsModal, setShowSettingsModal, toggleDarkMode
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
-            <Modal.Header className='border-0 position-absolute' style={{right: 0, top: '1rem', zIndex: 99999}}>
+            <Modal.Header className='border-0 position-absolute' style={{ right: 0, top: '1rem', zIndex: 99999 }}>
                 <button type="button" onClick={handleCloseModal}
                     className={`btn-close ${darkMode ? 'btn-close-white' : ''}`} aria-label="Close">
                 </button>
@@ -139,7 +139,9 @@ function SettingsModal({ showSettingsModal, setShowSettingsModal, toggleDarkMode
                                     </h3>
                                     <br />
 
-                                    <p>Your all-in-one messaging solution designed to streamline your digital communication experience. With Multichat, you can conveniently manage multiple messaging services in one centralized location.</p>
+                                    <p>
+                                        Welcome to MultiChat, your all-in-one messaging solution designed to streamline your digital communication experience. With MultiChat, you can conveniently manage multiple messaging services in one centralized location. Say goodbye to switching between apps and hello to effortless multitasking.
+                                    </p>
 
                                     <br />
                                     <br />
