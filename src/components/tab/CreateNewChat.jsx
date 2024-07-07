@@ -39,6 +39,7 @@ function CreateNewChat({ chats, setChats, selectedTab, setSelectedTab }) {
             setError(error);
         }
         setLoading(false);
+        setSelectedMessagingService(null);
     }
 
     return (

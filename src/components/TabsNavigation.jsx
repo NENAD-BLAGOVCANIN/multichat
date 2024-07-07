@@ -22,8 +22,6 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
     const [showOptionsDropdown, setShowOptionsDropdown] = useState(null);
 
 
-    const welcome_tab_id = "welcome";
-
     useEffect(() => {
         const fetchChats = async () => {
             try {
