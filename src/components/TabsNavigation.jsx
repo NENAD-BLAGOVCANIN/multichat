@@ -3,7 +3,7 @@ import { Tab, Tabs } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose, faEllipsisV, faPlus, faUser, faX } from '@fortawesome/free-solid-svg-icons';
 import Welcome from './welcome/Welcome';
-import { getChats } from '../api/chat';
+import { useGetChats } from '../api/chat';
 import CreateNewChat from './tab/CreateNewChat';
 import DeleteTabModal from './tab/DeleteTabModal';
 import SettingsModal from './user/settings/SettingsModal';
@@ -12,7 +12,6 @@ import Webview from './Webview';
 import { ReactComponent as UserSmallIcon } from '../assets/img/svg/user-sm.svg'
 
 function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
-    const [chats, setChats] = useState([]);
     const [selectedTab, setSelectedTab] = useState("welcome");
     const [showDeleteTabModal, setShowDeleteTabModal] = useState(false);
     const [selectedDeleteChat, setSelectedDeleteChat] = useState(null);
@@ -21,20 +20,8 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
     const [showAccountSettingsModal, setShowAccountSettingsModal] = useState(false);
     const [showOptionsDropdown, setShowOptionsDropdown] = useState(null);
 
-
-    useEffect(() => {
-        const fetchChats = async () => {
-            try {
-                const response = await getChats();
-                setChats(response);
-                console.log(response);
-            } catch (error) {
-                console.log(error)
-            }
-        };
-
-        fetchChats();
-    }, []);
+    const { chats, setChats, isLoading, error } = useGetChats();
+    console.log(chats);
 
     const openDeleteTabModal = (event, chat) => {
         event.stopPropagation();

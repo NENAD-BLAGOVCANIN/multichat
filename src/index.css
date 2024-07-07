@@ -313,6 +313,7 @@ hr {
 }
 
 .nav-tabs {
+  height: 55.5px !important;
   overflow-x: auto;
   overflow-y: hidden;
   max-width: 90% !important;
