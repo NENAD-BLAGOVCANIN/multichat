@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClose, faEllipsisV, faPlus, faUser, faX } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faClose, faEllipsisV, faPlus, faUser, faX } from '@fortawesome/free-solid-svg-icons';
 import Welcome from './welcome/Welcome';
 import { useGetChats } from '../api/chat';
 import CreateNewChat from './tab/CreateNewChat';
@@ -9,7 +9,7 @@ import DeleteTabModal from './tab/DeleteTabModal';
 import SettingsModal from './user/settings/SettingsModal';
 import TabSettingsModal from './tab/TabSettingsModal';
 import Webview from './Webview';
-import { ReactComponent as UserSmallIcon } from '../assets/img/svg/user-sm.svg'
+import DropdownMenu from './DropdownMenu';
 
 function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
     const [selectedTab, setSelectedTab] = useState("welcome");
@@ -94,12 +94,10 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
 
             <div className="sticky-tools">
                 <div className='d-flex align-items-center justify-content-end h-100'>
-                    <div className='btn p-1 color-text d-flex align-items-center' onClick={handleAddTabButton}>
+                    <div className='btn px-1 color-text d-flex align-items-center' onClick={handleAddTabButton}>
                         <FontAwesomeIcon icon={faPlus} />
                     </div>
-                    <div className='px-3'>
-                        <UserSmallIcon className='pointer' onClick={(event) => openAccountSettingsModal(event)} />
-                    </div>
+                    <DropdownMenu />
                 </div>
             </div>
 

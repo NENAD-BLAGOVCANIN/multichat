@@ -121,7 +121,7 @@ body {
 .nav-tabs .nav-item .nav-link {
   border-top-left-radius: .5rem !important;
   border-top-right-radius: .5rem !important;
-  z-index: 99999 !important;
+  z-index: 9 !important;
   position: relative;
 }
 
@@ -325,6 +325,7 @@ hr {
   top: 0;
   right: 0;
   height: 55.5px;
+  z-index: 999;
 }
 
 .options-tab-button {
@@ -394,4 +395,15 @@ hr {
 
 .modal-content {
   background-color: var(--background) !important;
+}
+
+.dropdown-menu{
+  right: 0;
+  top: 55px;
+  width: 250px;
+  background-color: var(--color-main-background);
+}
+
+.dropdown-menu .dropdown-item{
+  color: var(--color-text);
 }
