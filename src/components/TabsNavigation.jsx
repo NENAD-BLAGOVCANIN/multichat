@@ -15,10 +15,6 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
     const [selectedTab, setSelectedTab] = useState("welcome");
     const [showDeleteTabModal, setShowDeleteTabModal] = useState(false);
     const [selectedDeleteChat, setSelectedDeleteChat] = useState(null);
-    const [showTabSettingsModal, setShowTabSettingsModal] = useState(false);
-    const [selectedSettingsChat, setSelectedSettingsChat] = useState(null);
-    const [showAccountSettingsModal, setShowAccountSettingsModal] = useState(false);
-    const [showOptionsDropdown, setShowOptionsDropdown] = useState(null);
 
     const { chats, setChats, isLoading, error } = useGetChats();
     console.log(chats);
@@ -28,26 +24,6 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
         setSelectedDeleteChat(chat);
         setShowDeleteTabModal(true);
     }
-
-    const openTabSettingsModal = (event, chat) => {
-        event.stopPropagation();
-        setSelectedSettingsChat(chat);
-        setShowTabSettingsModal(true);
-    }
-
-    const openAccountSettingsModal = (event) => {
-        event.stopPropagation();
-        setShowAccountSettingsModal(true);
-    }
-
-    const handleOpenOptionsDropdown = (event, tabId) => {
-        event.stopPropagation();
-        setShowOptionsDropdown(showOptionsDropdown === tabId ? null : tabId);
-    };
-
-    const closeOptionsDropdown = () => {
-        setShowOptionsDropdown(null);
-    };
 
     const handleAddTabButton = () => {
         setSelectedTab('create-new-chat');
@@ -97,7 +73,12 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
                     <div className='btn px-1 color-text d-flex align-items-center' onClick={handleAddTabButton}>
                         <FontAwesomeIcon icon={faPlus} />
                     </div>
-                    <DropdownMenu />
+                    <DropdownMenu
+                        toggleDarkMode={toggleDarkMode}
+                        darkMode={darkMode}
+                        spellCheck={spellCheck}
+                        setSpellCheck={setSpellCheck}
+                    />
                 </div>
             </div>
 
@@ -109,23 +90,6 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
                 setShowDeleteTabModal={setShowDeleteTabModal}
                 selectedDeleteChat={selectedDeleteChat}
                 setSelectedDeleteChat={setSelectedDeleteChat}
-            />
-
-            <SettingsModal
-                showAccountSettingsModal={showAccountSettingsModal}
-                setShowAccountSettingsModal={setShowAccountSettingsModal}
-                toggleDarkMode={toggleDarkMode} darkMode={darkMode}
-                spellCheck={spellCheck} setSpellCheck={setSpellCheck}
-            />
-
-            <TabSettingsModal
-                chats={chats}
-                setChats={setChats}
-                darkMode={darkMode}
-                selectedSettingsChat={selectedSettingsChat}
-                setSelectedSettingsChat={setSelectedSettingsChat}
-                showTabSettingsModal={showTabSettingsModal}
-                setShowTabSettingsModal={setShowTabSettingsModal}
             />
 
         </div >

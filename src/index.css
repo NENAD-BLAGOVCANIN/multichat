@@ -407,3 +407,11 @@ hr {
 .dropdown-menu .dropdown-item{
   color: var(--color-text);
 }
+
+.nav-pills .nav-link, .nav-pills .show>.nav-link{
+  color: var(--color-text-lighter);
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+  background-color: var(--color-primary) !important;
+}

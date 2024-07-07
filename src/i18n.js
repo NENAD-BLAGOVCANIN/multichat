@@ -27,7 +27,7 @@ i18n
                     user_settings: {
                         title: "User settings",
                         upgrade_to_premium: "Upgrade to premium",
-                        current_plan: "Current plan: Multichat Free",
+                        current_plan: "Current plan: ",
                         light_dark_mode: "Light/dark mode",
                         enable_spell_check: "Enable spell check",
                         select_language: "Select language",
