@@ -6,6 +6,14 @@ export const useGetChats = () => {
     return { chats, setChats, isLoading, error };
 };
 
+export const useCreateChat = (chat) => {
+    const { data, setData, isLoading, error } = useFetch(apiUrl + '/chats/create', {
+        method: 'POST',
+        body: chat,
+    });
+    return { data, setData, isLoading, error };
+};
+
 const createChat = async (title, selectedMessagingService) => {
 
     const variables = {
@@ -30,10 +38,14 @@ const createChat = async (title, selectedMessagingService) => {
         if (response.ok) {
             return responseData;
         } else {
-            throw new Error(responseData.errors);
+            if (response.status === 403) {
+                throw new Error('You have reached the maximum number of tabs allowed.');
+            } else {
+                throw new Error(responseData.errors);
+            }
         }
     } catch (error) {
-        throw new Error(error);
+        throw new Error(error.message);
     }
 };
 

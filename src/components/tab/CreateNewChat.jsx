@@ -27,19 +27,18 @@ function CreateNewChat({ chats, setChats, selectedTab, setSelectedTab }) {
             return false;
         }
         try {
-
             const newChat = await createChat(title, selectedMessagingService);
             const updatedChats = [...chats, newChat];
             setChats(updatedChats);
             setSelectedTab(newChat.id);
-            setTitle('');
             setError('');
-
         } catch (error) {
-            setError(error);
+            setError(error.message);
+        } finally {
+            setLoading(false);
+            setTitle('');
+            setSelectedMessagingService(null);
         }
-        setLoading(false);
-        setSelectedMessagingService(null);
     }
 
     return (
