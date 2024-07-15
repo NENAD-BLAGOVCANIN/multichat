@@ -59,7 +59,7 @@ function CreateNewChat({ chats, setChats, selectedTab, setSelectedTab }) {
                                 <label className='mb-2'>{t('create_new_chat.title_label')} <span className='text-danger'>*</span></label>
                                 <input type="text"
                                     className='form-control'
-                                    placeholder='ex. WhatsApp Business Account'
+                                    placeholder={t('create_new_chat.title_placeholder')}
                                     value={title} style={{ padding: '.8rem' }}
                                     onChange={(event) => setTitle(event.target.value)}
                                 />
@@ -67,7 +67,7 @@ function CreateNewChat({ chats, setChats, selectedTab, setSelectedTab }) {
                                 <label className='mt-4 mb-2'>{t('create_new_chat.description_label')}</label>
                                 <textarea type="text"
                                     className='form-control'
-                                    placeholder='ex. Messages from my clients.'
+                                    placeholder={t('create_new_chat.description_placeholder')}
                                     style={{ padding: '.8rem' }}
                                 />
 

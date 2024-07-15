@@ -63,13 +63,13 @@ function SettingsModal({ showSettingsModal, setShowSettingsModal, toggleDarkMode
                         <div className="col-md-4">
                             <Nav variant="pills" className="flex-column">
                                 <Nav.Item>
-                                    <Nav.Link eventKey="account-settings">Account Preferences</Nav.Link>
+                                    <Nav.Link eventKey="account-settings">{t('user_settings.accountPreferences')}</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link eventKey="privacy">Privacy & Protection</Nav.Link>
+                                    <Nav.Link eventKey="privacy">{t('user_settings.privacyAndProtection')}</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link eventKey="about">About</Nav.Link>
+                                    <Nav.Link eventKey="about">{t('user_settings.about')}</Nav.Link>
                                 </Nav.Item>
                             </Nav>
                         </div>

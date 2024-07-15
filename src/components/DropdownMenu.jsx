@@ -40,19 +40,19 @@ function DropdownMenu({ toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
                 <Dropdown.Item className="hover d-flex align-items-center" onClick={openAccountSettingsModal}>
                     <PersonCircle className='m-0' />
                     <span className='ps-3 medium'>
-                        Account Settings
+                        {t('account_dropdown.accountSettings')}
                     </span>
                 </Dropdown.Item>
                 <Dropdown.Item onClick={() => handleLinkClick('https://multi-chat.io/about')} className="hover d-flex align-items-center">
                     <InfoCircle className='m-0' />
                     <span className='ps-3 medium'>
-                        About
+                        {t('account_dropdown.about')}
                     </span>
                 </Dropdown.Item>
                 <Dropdown.Item className="hover d-flex align-items-center">
                     <QuestionCircle className='m-0' />
                     <span className='ps-3 medium'>
-                        Help
+                        {t('account_dropdown.help')}
                     </span>
                 </Dropdown.Item>
 

@@ -17,15 +17,25 @@ i18n
                     create_new_chat: {
                         title: "Create new tab",
                         title_label: "Title",
+                        title_placeholder: "ex. WhatsApp Business Account",
                         description_label: "Description (optional)",
+                        description_placeholder: "ex. Messages from my clients.",
                         messaging_service_label: "Select messaging service",
                         create: "Create"
                     },
                     home: {
                         create_new_tab: "Start by creating a new tab"
                     },
+                    account_dropdown: {
+                        accountSettings: "Account Settings",
+                        about: "About",
+                        help: "Help"
+                    },
                     user_settings: {
                         title: "User settings",
+                        accountPreferences: "Account Preferences",
+                        privacyAndProtection: "Privacy & Protection",
+                        about: "About",
                         upgrade_to_premium: "Upgrade to premium",
                         current_plan: "Current plan: ",
                         light_dark_mode: "Light/dark mode",
@@ -76,67 +86,79 @@ i18n
                 }
             },
             zh: {
+
                 translation: {
                     create_new_chat: {
-                        title: "创建新聊天",
-                        title_label: "标题",
-                        description_label: "描述（可选）",
-                        messaging_service_label: "选择消息服务",
-                        create: "创建"
+                        title: "創建新標籤頁",
+                        title_label: "標題",
+                        title_placeholder: "例如：WhatsApp 商業賬戶",
+                        description_label: "描述（可選）",
+                        description_placeholder: "例如：來自我客戶的消息。",
+                        messaging_service_label: "選擇消息服務",
+                        create: "創建"
                     },
                     home: {
-                        create_new_tab: "开始创建新标签"
+                        create_new_tab: "從創建新標籤頁開始"
+                    },
+                    account_dropdown: {
+                        accountSettings: "帳戶設置",
+                        about: "關於",
+                        help: "幫助"
                     },
                     user_settings: {
-                        title: "用户设置",
-                        upgrade_to_premium: "升级到高级版",
-                        current_plan: "当前计划：Multichat 免费版",
-                        light_dark_mode: "浅色/深色模式",
-                        enable_spell_check: "启用拼写检查",
-                        select_language: "选择语言",
-                        account: "账户",
-                        check_for_updates: "检查更新",
-                        view_subscription_details: "查看订阅详情",
+                        title: "用戶設置",
+                        accountPreferences: "帳戶偏好",
+                        privacyAndProtection: "隱私與保護",
+                        about: "關於",
+                        upgrade_to_premium: "升級到高級版",
+                        current_plan: "當前計劃：",
+                        light_dark_mode: "亮/暗模式",
+                        enable_spell_check: "啟用拼寫檢查",
+                        select_language: "選擇語言",
+                        account: "帳戶",
+                        check_for_updates: "檢查更新",
+                        view_subscription_details: "查看訂閱詳情",
                         logout: "登出"
                     },
                     chat_settings: {
-                        title: "聊天设置",
-                        title_label: "标题",
-                        enable_audio_notifications: "启用音频通知",
-                        enable_message_notifications: "启用消息通知",
+                        title: "聊天設置",
+                        title_label: "標題",
+                        enable_audio_notifications: "啟用音頻通知",
+                        enable_message_notifications: "啟用消息通知",
                         save_changes: "保存更改"
                     },
                     delete_chat: {
-                        title: "删除聊天",
-                        text: "你确定要删除这个聊天吗？",
-                        subtext: "删除此聊天后，所有数据包括凭据、历史记录和设置将永久丢失。",
-                        delete: "删除"
+                        title: "刪除聊天",
+                        text: "您確定要刪除此標籤頁嗎？",
+                        subtext: "刪除此標籤頁後，您的所有數據，包括憑據、歷史記錄和設置，都將被永久刪除。",
+                        delete: "刪除"
                     },
                     login: {
-                        remember_pass: "记住 14 天",
-                        trouble_logging_in: "登录遇到问题？",
-                        enter_your_email: "输入你的电子邮件",
-                        welcome: "欢迎回来！请输入您的详细信息。",
-                        login: "登录",
-                        email: "电子邮件",
-                        password: "密码",
-                        forgot_password: "忘记密码？",
-                        dont_have_an_account: "还没有账户？",
-                        sign_up: "注册"
+                        remember_pass: "記住14天",
+                        trouble_logging_in: "登錄有困難？",
+                        enter_your_email: "輸入您的電子郵件",
+                        welcome: "歡迎回來！請輸入您的詳細信息。",
+                        login: "登錄",
+                        email: "電子郵件",
+                        password: "密碼",
+                        forgot_password: "忘記密碼？",
+                        dont_have_an_account: "還沒有帳戶？",
+                        sign_up: "註冊"
                     },
                     register: {
-                        sign_up: "注册",
-                        welcome: "欢迎！请输入您的详细信息。",
+                        sign_up: "註冊",
+                        welcome: "歡迎！請輸入您的詳細信息。",
                         name: "姓名",
-                        email: "电子邮件",
-                        password: "密码",
-                        enter_your_name: "输入你的名字",
-                        enter_your_email: "输入你的电子邮件",
-                        remember_me: "记住我",
-                        login: "登录",
-                        already_have_an_account: "已经有账户？"
+                        email: "電子郵件",
+                        password: "密碼",
+                        enter_your_name: "輸入您的姓名",
+                        enter_your_email: "輸入您的電子郵件",
+                        remember_me: "記住我",
+                        login: "登錄",
+                        already_have_an_account: "已有帳戶？"
                     }
                 }
+
             }
 
         }
