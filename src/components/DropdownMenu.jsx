@@ -4,8 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faInfo, faInfoCircle, faQuestionCircle, faRightFromBracket, faUser } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'react-i18next';
 import SettingsModal from './user/settings/SettingsModal';
+import { PersonCircle, InfoCircle, QuestionCircle } from 'react-bootstrap-icons';
+const electron = window.electron;
 
-function DropdownMenu({toggleDarkMode, darkMode, spellCheck, setSpellCheck}) {
+function DropdownMenu({ toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
 
     const [isOpen, setIsOpen] = useState(false);
     const [showSettingsModal, setShowSettingsModal] = useState(false);
@@ -25,6 +27,10 @@ function DropdownMenu({toggleDarkMode, darkMode, spellCheck, setSpellCheck}) {
         setShowSettingsModal(true);
     }
 
+    const handleLinkClick = (url) => {
+        electron.shell.openExternal(url);
+    };
+
     return (
         <div className='pe-3 ps-2'>
             <div className='btn color-text d-flex align-items-center h-100' onClick={toggleDropdown}>
@@ -32,30 +38,24 @@ function DropdownMenu({toggleDarkMode, darkMode, spellCheck, setSpellCheck}) {
             </div>
             <Dropdown.Menu show={isOpen} className='dropdown-menu'>
                 <Dropdown.Item className="hover d-flex align-items-center" onClick={openAccountSettingsModal}>
-                    <FontAwesomeIcon icon={faUser} />
-                    <span className='ps-2 medium'>
+                    <PersonCircle className='m-0' />
+                    <span className='ps-3 medium'>
                         Account Settings
                     </span>
                 </Dropdown.Item>
-                <Dropdown.Item className="hover d-flex align-items-center">
-                    <FontAwesomeIcon icon={faInfoCircle} />
-                    <span className='ps-2 medium'>
+                <Dropdown.Item onClick={() => handleLinkClick('https://multi-chat.io/about')} className="hover d-flex align-items-center">
+                    <InfoCircle className='m-0' />
+                    <span className='ps-3 medium'>
                         About
                     </span>
                 </Dropdown.Item>
                 <Dropdown.Item className="hover d-flex align-items-center">
-                    <FontAwesomeIcon icon={faQuestionCircle} />
-                    <span className='ps-2 medium'>
+                    <QuestionCircle className='m-0' />
+                    <span className='ps-3 medium'>
                         Help
                     </span>
                 </Dropdown.Item>
-                <DropdownDivider />
-                <Dropdown.Item className="hover text-danger d-flex align-items-center">
-                    <FontAwesomeIcon icon={faRightFromBracket} />
-                    <span className='ps-2 medium'>
-                        Quit
-                    </span>
-                </Dropdown.Item>
+
             </Dropdown.Menu>
 
             <SettingsModal

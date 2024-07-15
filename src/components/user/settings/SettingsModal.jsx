@@ -8,11 +8,18 @@ import BootstrapSwitchButton from 'bootstrap-switch-button-react';
 import LanguageSelector from './LanguageSelector';
 import { ReactComponent as UserIcon } from '../../../assets/img/svg/user.svg';
 import { useTranslation } from 'react-i18next';
+import About from '../../About';
+import Privacy from '../../Privacy';
+const electron = window.electron;
 
 function SettingsModal({ showSettingsModal, setShowSettingsModal, toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
 
     const { t } = useTranslation();
     const [userInfo, setUserInfo] = useState([]);
+
+    const handleLinkClick = (url) => {
+        electron.shell.openExternal(url);
+    };
 
     useEffect(() => {
         const fetchUserInfo = async () => {
@@ -74,7 +81,7 @@ function SettingsModal({ showSettingsModal, setShowSettingsModal, toggleDarkMode
                                         <span className='small fw-400 color-text-lighter'>{userInfo?.email}</span>
                                     </h3>
                                     <div className='py-3'>
-                                        <a href="https://multi-chat.io/pricing" className='btn btn-basic bg-info m-auto fw-500 d-block py-3 my-2 medium border px-3 py-2 text-color'>
+                                        <a onClick={() => { handleLinkClick("https://multi-chat.io/pricing") }} className='btn btn-basic bg-info m-auto fw-500 d-block py-3 my-2 medium border px-3 py-2 text-color'>
                                             <FontAwesomeIcon icon={faBoltLightning} className='text-warning pe-2' /> {t('user_settings.upgrade_to_premium')}
                                         </a>
                                         <span className='small text-center m-auto d-block pb-2'>
@@ -133,23 +140,12 @@ function SettingsModal({ showSettingsModal, setShowSettingsModal, toggleDarkMode
                                     </div>
                                 </Tab.Pane>
 
+                                <Tab.Pane eventKey="privacy">
+                                    <Privacy />
+                                </Tab.Pane>
+
                                 <Tab.Pane eventKey="about">
-                                    <h3 className='bold h5 pt-2'>
-                                        About
-                                    </h3>
-                                    <br />
-
-                                    <p>
-                                        Welcome to MultiChat, your all-in-one messaging solution designed to streamline your digital communication experience. With MultiChat, you can conveniently manage multiple messaging services in one centralized location. Say goodbye to switching between apps and hello to effortless multitasking.
-                                    </p>
-
-                                    <br />
-                                    <br />
-                                    <br />
-                                    <br />
-                                    <br />
-                                    <br />
-
+                                    <About />
                                 </Tab.Pane>
                             </Tab.Content>
                         </div>

@@ -11,6 +11,7 @@
   --color-dark-lighter: rgb(14, 43, 63);
   --background: rgb(240, 243, 245);
   --color-main-background: rgb(255, 255, 255);
+  --toastify-color-success: #791f90 !important;
   --sidebar-width: 290px;
 }
 
