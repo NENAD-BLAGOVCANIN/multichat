@@ -2,13 +2,15 @@ const { app, BrowserWindow, ipcMain, ipcRenderer, BrowserView, Tray, Menu, Notif
 const { setupTitlebar, attachTitlebarToWindow } = require("custom-electron-titlebar/main");
 const path = require('path');
 const electron = require('electron');
+const { autoUpdater } = require('electron-updater');
+const log = require('electron-log');
 
 let mainWindow;
 let tray;
 const NOTIFICATION_TITLE = 'Read New Messages'
 const NOTIFICATION_BODY = 'Checkout your new messages on Multichat.'
 const appPath = path.resolve(app.getPath('exe'));
-const isDev = true;
+const isDev = false;
 
 const startURL = isDev
     ? 'http://localhost:3000'
@@ -82,6 +84,8 @@ app.on('ready', () => {
         }
     });
 
+    autoUpdater.checkForUpdatesAndNotify();
+
 });
 
 ipcMain.on('close-main-window', (event) => {
@@ -99,4 +103,13 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit();
     }
+});
+
+autoUpdater.on('update-available', (info) => {
+    log.info('Update available.');
+});
+
+autoUpdater.on('update-downloaded', (info) => {
+    log.info('Update downloaded; will install now');
+    autoUpdater.quitAndInstall();
 });
