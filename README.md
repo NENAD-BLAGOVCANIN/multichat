@@ -1,1 +1,1 @@
-# multichat-v2
+# multichat
