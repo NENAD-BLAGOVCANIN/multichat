@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom';
 import { getUserInfo } from '../../../api/user';
 import BootstrapSwitchButton from 'bootstrap-switch-button-react';
 import LanguageSelector from './LanguageSelector';
-import { ReactComponent as UserIcon } from '../../../assets/img/svg/user.svg';
 import { useTranslation } from 'react-i18next';
 import About from '../../About';
 import Privacy from '../../Privacy';
+import CheckForUpdates from './CheckForUpdates';
 const electron = window.electron;
 
 function SettingsModal({ showSettingsModal, setShowSettingsModal, toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
@@ -118,12 +118,7 @@ function SettingsModal({ showSettingsModal, setShowSettingsModal, toggleDarkMode
                                         {t('user_settings.account')}
                                     </p>
 
-                                    <div className="form-group mb-3">
-                                        <a href='https://multi-chat.io/account/' className='text-decoration-none medium py-2 color-text'>
-                                            <FontAwesomeIcon icon={faCircleUp} className='pe-2' />
-                                            {t('user_settings.check_for_updates')}
-                                        </a>
-                                    </div>
+                                    <CheckForUpdates />                            
 
                                     <div className="form-group mb-3">
                                         <a href='https://multi-chat.io/account/' className='text-decoration-none medium py-2 color-text'>

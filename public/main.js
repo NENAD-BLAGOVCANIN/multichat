@@ -7,8 +7,6 @@ const log = require('electron-log');
 
 let mainWindow;
 let tray;
-const NOTIFICATION_TITLE = 'Read New Messages'
-const NOTIFICATION_BODY = 'Checkout your new messages on Multichat.'
 const appPath = path.resolve(app.getPath('exe'));
 const isDev = false;
 
@@ -22,15 +20,6 @@ if (!isDev) {
         path: appPath
     });
 }
-
-
-// function showNotification() {
-//     new Notification({
-//         title: NOTIFICATION_TITLE,
-//         body: NOTIFICATION_BODY,
-//         icon: path.join(__dirname, '../src/assets/img/logo.png'),
-//     }).show();
-// }
 
 if (process.platform === 'win32') {
     app.setAppUserModelId(app.name)
@@ -71,8 +60,6 @@ app.on('ready', () => {
 
     mainWindow.loadURL(startURL);
 
-    // showNotification();
-
     mainWindow.on('closed', () => {
         mainWindow = null;
     });
@@ -104,6 +91,18 @@ app.on('window-all-closed', () => {
         app.quit();
     }
 });
+
+ipcMain.on('check-for-updates', async (event) => {
+    try {
+        const updateInfo = await autoUpdater.checkForUpdatesAndNotify();
+        if (updateInfo) {
+            event.sender.send('update-available'); // Send message back to renderer
+        }
+    } catch (error) {
+        console.error('Error checking for updates:', error);
+    }
+});
+
 
 autoUpdater.on('update-available', (info) => {
     log.info('Update available.');
