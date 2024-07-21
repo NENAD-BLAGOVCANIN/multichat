@@ -33,7 +33,7 @@ function CheckForUpdates() {
             <div className="form-group mb-3">
                 <a onClick={checkForUpdates} disabled={updateAvailable} className='pointer text-decoration-none medium py-2 color-text'>
                     <FontAwesomeIcon icon={faCircleUp} className='pe-2' />
-                    {updateAvailable ? 'Updating...' : 'Check for updates'}
+                    {updateAvailable ? 'No updates found!' : 'Check for updates'}
                 </a>
             </div>
         </div>

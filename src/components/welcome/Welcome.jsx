@@ -13,7 +13,7 @@ function Welcome() {
             <div className='d-flex align-items-center justify-content-center' style={{ height: 'calc(100vh - 50px)' }}>
                 <div className='d-flex flex-column align-items-center'>
                     <p className='mb-2'><ChatIcon /></p>
-                    <p className='mb-2'>{t('home.create_new_tab')} test 3.4</p>
+                    <p className='mb-2'>{t('home.create_new_tab')}</p>
                 </div>
             </div>
         </div>
