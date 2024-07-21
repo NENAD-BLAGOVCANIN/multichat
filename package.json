@@ -1,8 +1,8 @@
 {
   "name": "multichat",
   "description": "Desktop application that enables users to use multiple messaging services from one app.",
-  "version": "0.3.2",
-  "private": true,
+  "version": "0.3.4",
+  "private": false,
   "main": "public/main.js",
   "homepage": "./",
   "dependencies": {
@@ -23,7 +23,7 @@
     "cross-env": "^7.0.3",
     "custom-electron-titlebar": "^4.2.8",
     "dotenv": "^16.4.5",
-    "electron-log": "^5.1.5",
+    "electron-log": "^5.1.6",
     "electron-reload": "^2.0.0-alpha.1",
     "electron-updater": "^6.2.1",
     "fs": "^0.0.1-security",
@@ -50,7 +50,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "electron:serve": "concurrently -k \"cross-env BROWSER=none npm start\" \"npm run electron:start\"",
-    "electron:build": "npm run build && electron-builder -c.extraMetadata.main=build/main.js",
+    "electron:build": "npm run build && electron-builder -p always -c.extraMetadata.main=build/main.js",
     "electron:start": "wait-on tcp:3000 && electron ."
   },
   "build": {
@@ -62,24 +62,26 @@
       "allowToChangeInstallationDirectory": true,
       "createStartMenuShortcut": true
     },
+    "publish": {
+      "provider": "github",
+      "owner": "NENAD-BLAGOVCANIN",
+      "repo": "multichat",
+      "private": false,
+      "token": "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"
+    },
     "mac": {
-      "publish": {
-        "provider": "github",
-        "owner": "Github Owner",
-        "repo": "Repository Name",
-        "private": true,
-        "token": ""
-      }
+      "icon": "./src/assets/img/logo.png",
+      "target": [
+        {
+          "target": "nsis-web",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
     },
     "win": {
       "icon": "./src/assets/img/logo.png",
-      "publish": {
-        "provider": "github",
-        "owner": "NENAD-BLAGOVCANIN",
-        "repo": "multichat",
-        "private": true,
-        "token": ""
-      },
       "target": [
         {
           "target": "nsis-web",
@@ -99,11 +101,6 @@
     ],
     "directories": {
       "buildResources": "build"
-    },
-    "publish": {
-      "provider": "github",
-      "private": true,
-      "owner": "NENAD-BLAGOVCANIN"
     }
   },
   "eslintConfig": {

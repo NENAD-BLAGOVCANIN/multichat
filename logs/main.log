@@ -1,0 +1,22 @@
+[2024-07-21 23:06:12.861] [info]  Hello!
+[2024-07-21 23:06:13.084] [info]  App version is 0.3.3
+[2024-07-21 23:06:20.442] [info]  Update available.
+[2024-07-21 23:47:51.031] [info]  Hello!
+[2024-07-21 23:47:51.040] [info]  App version is 0.3.3
+[2024-07-21 23:47:52.634] [info]  Update available.
+[2024-07-21 23:47:54.814] [info]  {
+  total: 753239,
+  delta: 753239,
+  transferred: 753239,
+  percent: 100,
+  bytesPerSecond: 10318342
+}
+[2024-07-21 23:47:54.829] [info]  Update downloaded; will install now
+[2024-07-21 23:50:22.144] [info]  Hello!
+[2024-07-21 23:50:22.950] [info]  App version is 0.3.4
+[2024-07-21 23:50:47.574] [info]  Update not available.
+[2024-07-21 23:53:16.811] [info]  Checking for updates!
+[2024-07-21 23:53:17.700] [info]  Update not available.
+[2024-07-21 23:53:44.688] [info]  Checking for updates!
+[2024-07-21 23:53:45.350] [info]  Checking for updates!
+[2024-07-21 23:53:45.509] [info]  Update not available.

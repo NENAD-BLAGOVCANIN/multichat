@@ -4,6 +4,10 @@ const path = require('path');
 const electron = require('electron');
 const { autoUpdater } = require('electron-updater');
 const log = require('electron-log');
+log.transports.file.resolvePathFn = () => path.join('C:/Users/User/Desktop/multichat', '/logs/main.log');
+log.info("Hello!");
+
+log.log("App version is " + app.getVersion());
 
 let mainWindow;
 let tray;
@@ -93,6 +97,9 @@ app.on('window-all-closed', () => {
 });
 
 ipcMain.on('check-for-updates', async (event) => {
+
+    log.info("Checking for updates!");
+
     try {
         const updateInfo = await autoUpdater.checkForUpdatesAndNotify();
         if (updateInfo) {
@@ -106,6 +113,14 @@ ipcMain.on('check-for-updates', async (event) => {
 
 autoUpdater.on('update-available', (info) => {
     log.info('Update available.');
+});
+
+autoUpdater.on('update-not-available', (info) => {
+    log.info('Update not available.');
+});
+
+autoUpdater.on('download-progress', (info) => {
+    log.info(info);
 });
 
 autoUpdater.on('update-downloaded', (info) => {
