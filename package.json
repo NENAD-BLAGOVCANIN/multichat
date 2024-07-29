@@ -1,7 +1,7 @@
 {
   "name": "multichat",
   "description": "Desktop application that enables users to use multiple messaging services from one app.",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "private": false,
   "main": "public/main.js",
   "homepage": "./",

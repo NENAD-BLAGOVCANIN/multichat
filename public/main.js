@@ -5,14 +5,13 @@ const electron = require('electron');
 const { autoUpdater } = require('electron-updater');
 const log = require('electron-log');
 log.transports.file.resolvePathFn = () => path.join('C:/Users/User/Desktop/multichat', '/logs/main.log');
-log.info("Hello!");
 
 log.log("App version is " + app.getVersion());
 
 let mainWindow;
 let tray;
 const appPath = path.resolve(app.getPath('exe'));
-const isDev = false;
+const isDev = true;
 
 const startURL = isDev
     ? 'http://localhost:3000'

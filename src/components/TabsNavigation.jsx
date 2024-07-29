@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faClose, faEllipsisV, faPlus, faUser, faX } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faArrowRight, faBars, faClose, faEllipsisV, faPlus, faUser, faX } from '@fortawesome/free-solid-svg-icons';
 import Welcome from './welcome/Welcome';
 import { useGetChats } from '../api/chat';
 import CreateNewChat from './tab/CreateNewChat';
 import DeleteTabModal from './tab/DeleteTabModal';
-import SettingsModal from './user/settings/SettingsModal';
-import TabSettingsModal from './tab/TabSettingsModal';
+import { savePositions } from '../api/chat';
 import Webview from './Webview';
 import DropdownMenu from './DropdownMenu';
 
@@ -29,6 +28,26 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
         setSelectedTab('create-new-chat');
     }
 
+
+    const moveTabLeft = (index) => {
+        if (index > 0) {
+            const newChats = [...chats];
+            [newChats[index - 1], newChats[index]] = [newChats[index], newChats[index - 1]];
+            setChats(newChats);
+            savePositions(newChats);
+        }
+    };
+
+    const moveTabRight = (index) => {
+        if (index < chats.length - 1) {
+            const newChats = [...chats];
+            [newChats[index + 1], newChats[index]] = [newChats[index], newChats[index + 1]];
+            setChats(newChats);
+            savePositions(newChats);
+        }
+    };
+
+
     return (
         <div className='tabs-nav bg-app'>
             <div>
@@ -37,16 +56,24 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
                         <Welcome />
                     </Tab>
 
-                    {chats?.map((chat) =>
+                    {chats?.map((chat, index) => (
                         <Tab
                             eventKey={chat.id}
                             key={chat.id}
                             className='px-0'
                             title={
-                                <div className="tab-item">
+                                <div className="tab-item d-flex align-items-center">
+
                                     <img src={chat.messaging_service.icon + '?v=3'} className='tab-icon' />
                                     <div className='ps-2 p-1 color-text-lighter medium'>{chat.title}</div>
+
                                     <div className='d-flex align-items-center ps-4'>
+                                        <div className='options-tab-button hover-light rounded-circle px-1 arrow-button' onClick={() => moveTabLeft(index)}>
+                                            <FontAwesomeIcon icon={faArrowLeft} className='small' />
+                                        </div>
+                                        <div className='options-tab-button hover-light rounded-circle px-1 arrow-button' onClick={() => moveTabRight(index)}>
+                                            <FontAwesomeIcon icon={faArrowRight} className='small' />
+                                        </div>
                                         <div className='options-tab-button hover-light rounded-circle me-1' onClick={(event) => { openDeleteTabModal(event, chat) }}>
                                             <FontAwesomeIcon icon={faClose} className='small' />
                                         </div>
@@ -58,7 +85,7 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
                                 <Webview chat={chat} spellCheck={spellCheck} />
                             </div>
                         </Tab>
-                    )}
+                    ))}
 
                     <Tab eventKey="create-new-chat">
                         <CreateNewChat chats={chats} setChats={setChats} selectedTab={selectedTab} setSelectedTab={setSelectedTab} />

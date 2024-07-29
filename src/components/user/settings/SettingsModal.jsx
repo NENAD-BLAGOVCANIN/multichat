@@ -81,8 +81,8 @@ function SettingsModal({ showSettingsModal, setShowSettingsModal, toggleDarkMode
                                         <span className='small fw-400 color-text-lighter'>{userInfo?.email}</span>
                                     </h3>
                                     <div className='py-3'>
-                                        <a onClick={() => { handleLinkClick("https://multi-chat.io/pricing") }} className='btn btn-basic bg-info m-auto fw-500 d-block py-3 my-2 medium border px-3 py-2 text-color'>
-                                            <FontAwesomeIcon icon={faBoltLightning} className='text-warning pe-2' /> {t('user_settings.upgrade_to_premium')}
+                                        <a onClick={() => { handleLinkClick("https://multi-chat.io/pricing") }} className='btn btn-basic m-auto hover fw-500 d-block py-3 my-2 medium border px-3 py-2'>
+                                            <FontAwesomeIcon icon={faBoltLightning} className='text-warning pe-2' /> <span className='color-text'>{t('user_settings.upgrade_to_premium')}</span>
                                         </a>
                                         <span className='small text-center m-auto d-block pb-2'>
                                             {t('user_settings.current_plan')} {userInfo?.subscription?.title}

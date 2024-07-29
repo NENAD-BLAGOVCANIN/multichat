@@ -21,10 +21,6 @@ function CheckForUpdates() {
             setUpdateAvailable(true);
         };
 
-        if (window.ipcRenderer) {
-            window.ipcRenderer.on('update-available', handleUpdateAvailable);
-        }
-
     }, []);
 
 

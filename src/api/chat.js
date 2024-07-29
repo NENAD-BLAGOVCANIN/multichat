@@ -14,7 +14,7 @@ export const useCreateChat = (chat) => {
     return { data, setData, isLoading, error };
 };
 
-const createChat = async (title, selectedMessagingService) => {
+export const createChat = async (title, selectedMessagingService) => {
 
     const variables = {
         title: title,
@@ -106,4 +106,30 @@ const deleteChat = async (chatId) => {
     }
 };
 
-export { createChat, updateChat, deleteChat };
+export const savePositions = async (newChats) => {
+
+    const token = localStorage.getItem('accessToken');
+
+    try {
+        const response = await fetch(apiUrl + '/chats/update-positions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
+            body: JSON.stringify({ positions: newChats.map((chat, index) => ({ id: chat.id, position: index })) }),
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to update positions');
+        }
+
+        const result = await response.json();
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+
+export { updateChat, deleteChat };
