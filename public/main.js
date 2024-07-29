@@ -11,7 +11,11 @@ log.log("App version is " + app.getVersion());
 let mainWindow;
 let tray;
 const appPath = path.resolve(app.getPath('exe'));
-const isDev = true;
+const isDev = false;
+let isSingleInstance = app.requestSingleInstanceLock()
+if (!isSingleInstance) {
+    app.quit()
+}
 
 const startURL = isDev
     ? 'http://localhost:3000'
@@ -126,3 +130,10 @@ autoUpdater.on('update-downloaded', (info) => {
     log.info('Update downloaded; will install now');
     autoUpdater.quitAndInstall();
 });
+
+app.on('second-instance', (event, argv, cwd) => {
+    if (mainWindow) {
+        if (mainWindow.isMinimized()) mainWindow.restore()
+        mainWindow.focus()
+    }
+})
