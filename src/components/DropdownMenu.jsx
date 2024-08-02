@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faInfo, faInfoCircle, faQuestionCircle, faRightFromBracket, faUser } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'react-i18next';
 import SettingsModal from './user/settings/SettingsModal';
-import { PersonCircle, InfoCircle, QuestionCircle } from 'react-bootstrap-icons';
+import { PersonCircle, InfoCircle, QuestionCircle, List } from 'react-bootstrap-icons';
 const electron = window.electron;
 
 function DropdownMenu({ toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
@@ -32,9 +32,9 @@ function DropdownMenu({ toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
     };
 
     return (
-        <div className='pe-3 ps-2'>
-            <div className='btn color-text d-flex align-items-center h-100' onClick={toggleDropdown}>
-                <FontAwesomeIcon icon={faBars} className='pointer' />
+        <div className='pe-3'>
+            <div className='btn px-2 color-text d-flex align-items-center h-100' onClick={toggleDropdown}>
+                <List className='h5 m-0 pointer' />
             </div>
             <Dropdown.Menu show={isOpen} className='dropdown-menu'>
                 <Dropdown.Item className="hover d-flex align-items-center" onClick={openAccountSettingsModal}>

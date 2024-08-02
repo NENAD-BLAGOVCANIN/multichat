@@ -9,6 +9,7 @@ import DeleteTabModal from './tab/DeleteTabModal';
 import { savePositions } from '../api/chat';
 import Webview from './Webview';
 import DropdownMenu from './DropdownMenu';
+import { Plus } from 'react-bootstrap-icons';
 
 function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck }) {
     const [selectedTab, setSelectedTab] = useState("welcome");
@@ -97,8 +98,8 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
 
             <div className="sticky-tools">
                 <div className='d-flex align-items-center justify-content-end h-100'>
-                    <div className='btn px-1 color-text d-flex align-items-center' onClick={handleAddTabButton}>
-                        <FontAwesomeIcon icon={faPlus} />
+                    <div className='btn px-2 color-text d-flex align-items-center' onClick={handleAddTabButton}>
+                        <Plus className='h3 m-0' />
                     </div>
                     <DropdownMenu
                         toggleDarkMode={toggleDarkMode}
