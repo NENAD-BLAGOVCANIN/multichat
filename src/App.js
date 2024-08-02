@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import Logout from './pages/Logout';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { Outlet } from 'react-router-dom';
+import TitleBar from './components/titleBar/TitleBar';
 
 const PrivateRoutes = () => {
   const { authenticated, loading } = useAuth();
@@ -54,26 +55,32 @@ function App() {
   }, [darkMode]);
 
   return (
-    <Router>
-      <AuthProvider>
-        <Routes>
+    <>
 
-          <Route index element={<Navigate to="/home" />} />
+    <TitleBar />
 
-          <Route element={<PrivateRoutes />}>
-            <Route path="/home" element={<Home toggleDarkMode={toggleDarkMode} darkMode={darkMode} spellCheck={spellCheck} setSpellCheck={setSpellCheck} />} />
-          </Route>
+      <Router>
+        <AuthProvider>
+          <Routes>
 
-          {/* Auth */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/logout" element={<Logout />} />
+            <Route index element={<Navigate to="/home" />} />
 
-          {/* Fallback route to handle 404 or unmatched routes */}
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-      </AuthProvider>
-    </Router>
+            <Route element={<PrivateRoutes />}>
+              <Route path="/home" element={<Home toggleDarkMode={toggleDarkMode} darkMode={darkMode} spellCheck={spellCheck} setSpellCheck={setSpellCheck} />} />
+            </Route>
+
+            {/* Auth */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/logout" element={<Logout />} />
+
+            {/* Fallback route to handle 404 or unmatched routes */}
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </AuthProvider>
+      </Router>
+    </>
+
   );
 }
 

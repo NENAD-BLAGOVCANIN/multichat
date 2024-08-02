@@ -1,0 +1,23 @@
+.title-bar-title {
+    font-size: 9pt;
+}
+
+.title-bar {
+    -webkit-app-region: drag;
+    /* Make the entire title bar draggable */
+    height: 35px;
+    padding: 0 10px;
+}
+
+.title-bar-buttons {
+    -webkit-app-region: no-drag;
+    /* Make the buttons non-draggable */
+}
+
+.title-bar-buttons .btn {
+    border-radius: 0;
+}
+
+.title-bar-buttons .btn svg {
+    font-size: 12pt;
+}

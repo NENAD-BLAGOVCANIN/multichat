@@ -11,7 +11,7 @@ log.log("App version is " + app.getVersion());
 let mainWindow;
 let tray;
 const appPath = path.resolve(app.getPath('exe'));
-const isDev = false;
+const isDev = true;
 let isSingleInstance = app.requestSingleInstanceLock()
 if (!isSingleInstance) {
     app.quit()
@@ -54,14 +54,15 @@ app.on('ready', () => {
         width: 1150,
         height: 750,
         autoHideMenuBar: true,
+        frame: false,
         webPreferences: {
+            contextIsolation: true,
             nodeIntegration: true,
             enableRemoteModule: true,
             sandbox: false,
             preload: path.join(__dirname, 'preload.js'),
             webviewTag: true
         },
-        frame: true,
         icon: path.join(__dirname, '../src/assets/img/logo.png'),
     });
 
@@ -137,3 +138,19 @@ app.on('second-instance', (event, argv, cwd) => {
         mainWindow.focus()
     }
 })
+
+ipcMain.on('minimize-window', () => {
+    mainWindow.minimize();
+});
+
+ipcMain.on('maximize-window', () => {
+    if (mainWindow.isMaximized()) {
+        mainWindow.unmaximize();
+    } else {
+        mainWindow.maximize();
+    }
+});
+
+ipcMain.on('close-window', () => {
+    mainWindow.close();
+});

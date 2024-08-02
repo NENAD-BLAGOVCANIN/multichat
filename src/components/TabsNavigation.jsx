@@ -49,7 +49,7 @@ function TabsNavigation({ toggleDarkMode, darkMode, spellCheck, setSpellCheck })
 
 
     return (
-        <div className='tabs-nav bg-app'>
+        <div className='tabs-nav bg-app position-relative'>
             <div>
                 <Tabs className='border-0 pt-1 w-100 px-2' style={{ overflow: 'visible !important' }} activeKey={selectedTab} onSelect={(key) => setSelectedTab(key)}>
                     <Tab eventKey="welcome" className='px-0'>
