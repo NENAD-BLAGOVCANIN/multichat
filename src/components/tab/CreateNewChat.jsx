@@ -4,6 +4,7 @@ import telegramLogo from '../../assets/img/TelegramLogo.svg'
 import skypeLogo from '../../assets/img/SkypeLogo.svg'
 import messengerLogo from '../../assets/img/MessengerLogo.svg'
 import discordLogo from '../../assets/img/DiscordLogo.svg'
+import slackLogo from '../../assets/img/SlackLogo.svg'
 import { createChat } from '../../api/chat'
 import weChatLogo from '../../assets/img/WeChatLogo.svg'
 import { useTranslation } from 'react-i18next';
@@ -111,6 +112,11 @@ function CreateNewChat({ chats, setChats, selectedTab, setSelectedTab }) {
                                 <div className="col-4 pb-3 px-1">
                                     <button onClick={() => { setSelectedMessagingService('wechat') }} className={`btn w-100 rounded d-flex justify-content-center align-items-center hover small ${selectedMessagingService === 'wechat' ? 'btn-primary' : 'btn-basic border'}`} style={{ height: 65 }}>
                                         <img src={weChatLogo} className='img-fluid' style={{ height: 30 }} alt="" />
+                                    </button>
+                                </div>
+                                <div className="col-4 pb-3 px-1">
+                                    <button onClick={() => { setSelectedMessagingService('slack') }} className={`btn w-100 rounded d-flex justify-content-center align-items-center hover small ${selectedMessagingService === 'slack' ? 'btn-primary' : 'btn-basic border'}`} style={{ height: 65 }}>
+                                        <img src={slackLogo} className='img-fluid' style={{ height: 30 }} alt="" />
                                     </button>
                                 </div>
                             </div>
