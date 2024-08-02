@@ -18,6 +18,14 @@
     border-radius: 0;
 }
 
+.title-bar-buttons .btn:hover {
+    background-color: var(--background);
+}
+
 .title-bar-buttons .btn svg {
     font-size: 12pt;
+}
+
+.hover-danger:hover{
+    background-color: var(--bs-danger) !important;
 }

@@ -25,7 +25,7 @@ function TitleBar() {
             <div className='title-bar-buttons'>
                 <button className='btn color-text hover-lg' onClick={minimizeWindow}>⎯</button>
                 <button className='btn color-text hover-lg pb-2' onClick={maximizeWindow}>□</button>
-                <button className='btn color-text hover-lg' onClick={closeWindow}><X /></button>
+                <button className='btn hover-danger color-text hover-lg' onClick={closeWindow}><X /></button>
             </div>
         </div>
     );
